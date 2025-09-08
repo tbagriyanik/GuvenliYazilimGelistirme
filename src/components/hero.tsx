@@ -8,9 +8,9 @@ export function Hero() {
   const t = useTranslations('Hero');
 
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-24 md:py-32 bg-card/20">
       <div className="container mx-auto text-center px-4 md:px-6">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-primary-foreground font-headline">
+        <h1 className="text-4xl md:text-6xl font-bold tracking-tighter font-headline">
           {t('title')}
         </h1>
         <p className="mx-auto mt-4 max-w-[700px] text-lg text-muted-foreground">
