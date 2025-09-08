@@ -1,0 +1,291 @@
+{
+  "Header": {
+    "brand": "Güvenli Uygulama Geliştirme",
+    "nav": {
+      "principles": "İlkeler",
+      "generator": "AI Kod Oluştur",
+      "examples": "Örnekler",
+      "checklist": "Kontrol Listesi"
+    }
+  },
+  "Hero": {
+    "title": "Güvenli Uygulama Geliştirme",
+    "subtitle": "Temel yazılım güvenliği ilkelerini anlamak ve uygulamak için kapsamlı rehberiniz.",
+    "cta": "İlkeleri Keşfedin"
+  },
+  "SecurityPrinciples": {
+    "title": "Temel Güvenlik İlkeleri",
+    "subtitle": "Bu temel kavramlar, güvenli yazılım geliştirmenin yapı taşlarıdır. Uygulamalarınızı ve kullanıcılarınızı korumak için bunları anlamak ve uygulamak çok önemlidir.",
+    "learnMore": "Daha Fazla Bilgi",
+    "principles": [
+      {
+        "title": "Giriş Doğrulaması",
+        "description": "Kullanıcı girdisine asla güvenmeyin. Dış kaynaklardan gelen tüm verileri doğrulayın, temizleyin ve kodlayın.",
+        "details": [
+          "Doğrulama için engelleme listeleri değil, izin listeleri kullanın.",
+          "Parametreli sorgularla SQL Enjeksiyonunu önleyin.",
+          "Siteler Arası Komut Dosyası Çalıştırmayı (XSS) durdurmak için çıktıyı kodlayın."
+        ],
+        "modalContent": {
+          "paragraph": "Giriş doğrulaması, birçok yaygın web uygulaması güvenlik açığına karşı ilk savunma hattıdır. Bir kullanıcıdan veya harici bir sistemden alınan herhangi bir verinin işlenmeden önce beklenen biçimlere, türlere ve uzunluklara uymasını sağlamayı içerir. Girdinin doğrulanmaması, kod enjeksiyonuna, arabellek taşmalarına ve diğer ciddi güvenlik kusurlarına yol açabilir. Dış verileri her zaman güvenilmez olarak kabul edin ve istemci tarafı doğrulama mevcut olsa bile sunucu tarafında doğrulayın."
+        }
+      },
+      {
+        "title": "Kimlik Doğrulama ve Yetkilendirme",
+        "description": "Bir kullanıcının kim olduğunu (kimlik doğrulama) ve ne yapmasına izin verildiğini (yetkilendirme) doğrulayın.",
+        "details": [
+          "Güçlü parola politikaları ve MFA uygulayın.",
+          "Güvenli oturum yönetimi kullanın.",
+          "Rol Tabanlı Erişim Kontrolü (RBAC) uygulayın."
+        ],
+        "modalContent": {
+          "paragraph": "Kimlik doğrulama, bir kullanıcının kimliğini, genellikle bir parola gibi kimlik bilgileriyle ve giderek artan bir şekilde çok faktörlü kimlik doğrulama (MFA) ile doğrular. Yetkilendirme, kimliği doğrulanmış bir kullanıcının ne yapmasına izin verildiğini belirler. Yaygın bir hata, bir eylemi yalnızca bir kullanıcının kimliğine göre gerçekleştirmek ve o kullanıcının o eylemi gerçekleştirme haklarına sahip olup olmadığını kontrol etmemektir. Verilere ve işlevselliğe yetkisiz erişimi önlemek için her hassas istekte uygun yetkilendirme kontrolleri uygulanmalıdır."
+        }
+      },
+      {
+        "title": "Kriptografi",
+        "description": "Aktarım halindeki ve durağan verileri güçlü, endüstri standardı şifreleme kullanarak koruyun.",
+        "details": [
+          "Tüm ağ iletişimi için TLS kullanın.",
+          "Veritabanlarındaki PII gibi hassas verileri şifreleyin.",
+          "Asla kendi kriptografik algoritmalarınızı oluşturmayın."
+        ],
+        "modalContent": {
+          "paragraph": "Kriptografi, verileri gizli bir anahtar olmadan okunamayan bir biçime dönüştürmek için matematiksel algoritmalar kullanır. Veri gizliliğini ve bütünlüğünü korumak için gereklidir. Aktarım halindeki veriler, kulak misafiri olmayı önlemek için her zaman TLS (Taşıma Katmanı Güvenliği) gibi protokoller kullanılarak şifrelenmelidir. Bir veritabanındaki müşteri bilgileri gibi durağan haldeki hassas veriler de şifrelenmelidir. İyi incelenmiş, standart kriptografik kütüphaneler kullanmak ve genellikle kusurlu olan özel şifreleme şemaları icat etmekten kaçınmak kritik öneme sahiptir."
+        }
+      },
+      {
+        "title": "Hata Yönetimi ve Günlük Kaydı",
+        "description": "Hassas bilgileri sızdırmadan güvenli bir şekilde başarısız olun. İzleme ve adli tıp için olayları günlüğe kaydedin.",
+        "details": [
+          "Hatalarda yığın izlerini veya sistem bilgilerini açığa çıkarmaktan kaçının.",
+          "Kimlik doğrulama girişimlerini, erişim kontrolü hatalarını vb. günlüğe kaydedin.",
+          "Günlüklerin kurcalanmaya karşı korunduğundan emin olun."
+        ],
+        "modalContent": {
+          "paragraph": "Güvenli hata yönetimi, hassas bilgilerin saldırganlara sızmasını önler. Ayrıntılı hata mesajları, bir saldırgana yardımcı olabilecek sistem yollarını, kütüphane sürümlerini veya veritabanı yapılarını ortaya çıkarabilir. Bunun yerine, kullanıcılara genel hata mesajları gösterin ve geliştiriciler için sunucuda ayrıntılı, özel bilgiler günlüğe kaydedin. Güvenlikle ilgili olayların kapsamlı bir şekilde günlüğe kaydedilmesi, saldırıları tespit etmek, ihlalleri araştırmak ve bir sistemin nasıl kullanıldığını veya kötüye kullanıldığını anlamak için çok önemlidir."
+        }
+      },
+      {
+        "title": "Veri Koruma",
+        "description": "Verileri hassasiyete göre sınıflandırın ve uygun güvenlik kontrollerini uygulayın.",
+        "details": [
+          "Topladığınız ve sakladığınız verileri en aza indirin.",
+          "Durağan ve aktarım halindeki hassas verileri koruyun.",
+          "Açık bir veri saklama ve imha politikasına sahip olun."
+        ],
+        "modalContent": {
+          "paragraph": "Veri koruma, uygulamanızın işlediği verileri anlamayı, hassasiyete göre sınıflandırmayı (ör. genel, dahili, gizli) ve bu sınıflandırmaya uygun güvenlik kontrollerini uygulamayı içerir. Bu, veri minimizasyonunu içerir - yalnızca kesinlikle gerekli olan verileri toplamak ve saklamak. Güvenli veri imhası da hayati önem taşır; bir dosyayı silmek genellikle kurtarılabilir bırakır, bu nedenle veriler artık gerekli olmadığında uygun veri silme veya yok etme teknikleri kullanılmalıdır."
+        }
+      },
+      {
+        "title": "Güvenli Yapılandırma",
+        "description": "Sunuculardan çerçevelere kadar yığınınızın tüm bileşenlerini sağlamlaştırın.",
+        "details": [
+          "Varsayılan kimlik bilgilerini ve kullanılmayan özellikleri kaldırın.",
+          "Tüm yazılımları ve kütüphaneleri güncel tutun.",
+          "Yapılandırmaları düzenli olarak zayıflıklara karşı denetleyin."
+        ],
+        "modalContent": {
+          "paragraph": "Birçok sistem kutudan çıktığı gibi güvensizdir. Güvenli yapılandırma, işletim sistemi, web sunucusu, uygulama sunucusu ve veritabanı dahil olmak üzere teknoloji yığınının her katmanını sağlamlaştırmayı içerir. Bu, varsayılan parolaları değiştirmek, gereksiz hizmetleri ve özellikleri devre dışı bırakmak ve güvenlik ayarlarını mümkün olduğunca kısıtlayıcı olacak şekilde yapılandırmak anlamına gelir. Otomatik yapılandırma yönetimi ve düzenli güvenlik denetimleri, güçlü bir güvenlik duruşu sürdürmeye ve yapılandırma kaymasını önlemeye yardımcı olabilir."
+        }
+      },
+      {
+        "title": "En Az Ayrıcalık İlkesi",
+        "description": "Kullanıcılara ve işlemlere yalnızca işlerini yapmak için gerekli olan minimum izinleri verin.",
+        "details": [
+          "İşlemleri kök/yönetici haklarıyla çalıştırmaktan kaçının.",
+          "Veritabanı kullanıcı izinlerini sınırlayın.",
+          "Kullanıcı erişim haklarını düzenli olarak gözden geçirin."
+        ],
+        "modalContent": {
+          "paragraph": "En Az Ayrıcalık İlkesi, herhangi bir kullanıcının, programın veya sürecin işlevini yerine getirmek için yalnızca gerekli olan asgari ayrıcalıklara sahip olması gerektiğini belirtir. Örneğin, bir web uygulaması, yüksek güçlü bir yönetici hesabı kullanmak yerine, yalnızca belirli tablolarda gerekli eylemleri (SELECT, INSERT, UPDATE) gerçekleştirebilen bir kullanıcı hesabıyla veritabanına bağlanmalıdır. Bu ilke, bir kaza, hata veya istismardan kaynaklanabilecek hasarı sınırlar."
+        }
+      }
+    ]
+  },
+  "CodeSnippetGenerator": {
+    "title": "Kod Parçacığı Oluşturucu",
+    "subtitle": "Yapay zeka kullanarak pratik bir kod örneği oluşturmak için bir güvenlik ilkesi ve bir programlama dili seçin.",
+    "form": {
+      "securityPrinciple": {
+        "label": "Güvenlik İlkesi",
+        "placeholder": "Bir ilke seçin",
+        "required": "Lütfen bir güvenlik ilkesi seçin."
+      },
+      "programmingLanguage": {
+        "label": "Programlama Dili",
+        "placeholder": "Bir dil seçin",
+        "required": "Lütfen bir programlama dili seçin."
+      },
+      "button": {
+        "generate": "Oluştur",
+        "generating": "Oluşturuluyor..."
+      }
+    },
+    "generatedCodeTitle": "Oluşturulan Kod:",
+    "toast": {
+      "title": "Oluşturma Başarısız",
+      "description": "Kod parçacığı oluşturulamadı."
+    }
+  },
+  "RealWorldExamples": {
+    "title": "Gerçek Dünya Örnekleri",
+    "subtitle": "Geçmişten öğrenmek, güvenli bir geleceğin anahtarıdır. İşte bazı yüksek profilli ihlaller ve bize öğrettikleri dersler.",
+    "vulnerabilityLabel": "Zafiyet",
+    "impactLabel": "Etki",
+    "lessonLabel": "Anahtar Ders",
+    "readMore": "Devamını Oku",
+    "examples": [
+      {
+        "vulnerability": "Yamasız Apache Struts çerçevesi",
+        "impact": "Sosyal Güvenlik numaraları ve ehliyet numaraları da dahil olmak üzere 147 milyon kişinin kişisel verileri ifşa edildi.",
+        "lesson": "Bilinen güvenlik açıklarının zamanında yamalanması kritik öneme sahiptir. Tek bir yamasız sunucu, tüm bir kuruluşu tehlikeye atabilir.",
+        "modalContent": {
+          "paragraph": "2017'de Equifax, Apache Struts web çerçevesindeki bilinen bir güvenlik açığını yamalayamadı. Saldırganlar bu güvenlik açığından yararlanarak şirketin iç ağına erişim sağladı ve tespit edilmeden önce 76 gün boyunca yanal olarak hareket etti. Neredeyse ABD nüfusunun yarısının hassas kişisel bilgilerini sızdırdılar. Olay, zamanında yama yapma ve bir ihlalin patlama yarıçapını sınırlamak için ağ segmentasyonu da dahil olmak üzere sağlam bir güvenlik açığı yönetimi programının kritik önemini vurguladı."
+        }
+      },
+      {
+        "vulnerability": "Ele geçirilmiş derleme sunucusu",
+        "impact": "Orion yazılım güncellemelerine kötü amaçlı kod enjekte edildi ve ABD hükümetinin bazı bölümleri de dahil olmak üzere binlerce kuruluşu etkiledi.",
+        "lesson": "Yazılım geliştirme yaşam döngüsünü (SDLC) ve tedarik zincirini güvence altına almak, uygulamanın kendisini güvence altına almak kadar önemlidir.",
+        "modalContent": {
+          "paragraph": "SolarWinds saldırısı, ulus-devlet aktörlerinin SolarWinds'in Orion Platformu için derleme ortamını tehlikeye attığı karmaşık bir tedarik zinciri saldırısıydı. Daha sonra imzalanan ve rutin bir güncellemenin parçası olarak müşterilere dağıtılan meşru bir DLL dosyasına bir arka kapı enjekte ettiler. Bu truva atı içeren güncelleme, saldırganların binlerce yüksek değerli hedefin ağlarında bir yer edinmesine olanak sağladı. İhlal, derleme sunucusu bütünlüğü ve bağımlılık taraması da dahil olmak üzere yazılım tedarik zinciri boyunca uçtan uca güvenliğin gerekliliğini vurguladı."
+        }
+      },
+      {
+        "vulnerability": "Yanlış yapılandırılmış Web Uygulaması Güvenlik Duvarı (WAF)",
+        "impact": "Eski bir çalışan, 100 milyondan fazla kredi kartı başvurusunun verilerine erişmek ve bu verileri dışarı sızdırmak için yanlış yapılandırılmış bir güvenlik duvarından yararlandı.",
+        "lesson": "Bulut hizmetlerinin ve altyapısının güvenli yapılandırılması esastır. Yanlış yapılandırmalar, bulut ihlallerinin önde gelen nedenidir.",
+        "modalContent": {
+          "paragraph": "Eski bir Amazon Web Services çalışanı, hassas müşteri verilerini içeren bir S3 kovasına erişim sağlamak için yanlış yapılandırılmış bir Web Uygulaması Güvenlik Duvarı'ndan (WAF) yararlandı. Saldırgan, daha sonra verilere erişim sağlayan EC2 meta veri hizmetinden geçici kimlik bilgilerini almak için Sunucu Tarafı İstek Sahteciliği (SSRF) saldırıları gerçekleştirebildi. Bu olay, karmaşık bulut hizmetlerinde bile yapılandırmadaki insan hatasının büyük bir tehdit olarak kaldığının açık bir hatırlatıcısıydı. Uygun IAM rolleri ve dikkatli yapılandırma denetimi çok önemlidir."
+        }
+      }
+    ]
+  },
+  "SecurityChecklist": {
+    "title": "Etkileşimli Güvenlik Kontrol Listesi",
+    "subtitle": "Uygulamanızı yaygın güvenlik en iyi uygulamalarına karşı denetlemek için bu kontrol listesini kullanın. Öğeleri gözden geçirmek için her bölümü genişletin.",
+    "categories": [
+      {
+        "title": "Giriş ve Veri Doğrulaması",
+        "items": [
+          {
+            "text": "Tüm kullanıcı girdilerini sunucu tarafında temizleyin.",
+            "description": "İstemci tarafında doğrulamanız olsa bile verileri her zaman arka uçta temizleyin."
+          },
+          {
+            "text": "SQL enjeksiyonunu önlemek için parametreli sorgular kullanın.",
+            "description": "Kullanıcı girdisini asla doğrudan veritabanı sorgularına birleştirmeyin."
+          },
+          {
+            "text": "Veri türünü, uzunluğunu, biçimini ve aralığını doğrulayın.",
+            "description": "Gelen verilerin işlenmeden önce beklenen kalıplara uygun olduğundan emin olun."
+          },
+          {
+            "text": "Siteler Arası Komut Dosyası Çalıştırmayı (XSS) önlemek için çıktıyı kodlayın.",
+            "description": "Kullanıcı tarafından sağlanan içeriği oluşturmadan önce özel karakterleri HTML varlıklarına dönüştürün."
+          }
+        ]
+      },
+      {
+        "title": "Kimlik Doğrulama ve Oturum Yönetimi",
+        "items": [
+          {
+            "text": "Güçlü parola politikaları uygulayın.",
+            "description": "Karakter türlerinin bir karışımını, minimum uzunluğu zorunlu kılın ve yaygın parolalardan kaçının."
+          },
+          {
+            "text": "Çok faktörlü kimlik doğrulama (MFA) uygulayın.",
+            "description": "Sadece bir parolanın ötesinde ikinci bir güvenlik katmanı ekleyin."
+          },
+          {
+            "text": "Giriş yapıldığında yeni oturum kimlikleri oluşturun.",
+            "description": "Oturum sabitleme saldırılarını önlemeye yardımcı olur."
+          },
+          {
+            "text": "Parola karmalarını güvenli bir şekilde saklayın (örneğin, bcrypt kullanarak).",
+            "description": "Parolaları asla düz metin olarak saklamayın; her zaman güçlü, tuzlanmış bir karma algoritması kullanın."
+          },
+          {
+            "text": "Güvenli parola kurtarma mekanizmaları uygulayın.",
+            "description": "Sürecin bilgi sızdırmadığından ve kaba kuvvet saldırılarına karşı dirençli olduğundan emin olun."
+          }
+        ]
+      },
+      {
+        "title": "Erişim Kontrolü",
+        "items": [
+          {
+            "text": "En Az Ayrıcalık İlkesini uygulayın.",
+            "description": "Hesaplara ve süreçlere yalnızca kesinlikle ihtiyaç duydukları izinleri verin."
+          },
+          {
+            "text": "Rol tabanlı erişim kontrolü (RBAC) uygulayın.",
+            "description": "İzinleri bireysel kullanıcılara atamak yerine roller aracılığıyla yönetin."
+          },
+          {
+            "text": "Varsayılan olarak erişimi reddedin.",
+            "description": "Yalnızca açıkça erişim izni verin; varsayılan durum erişim olmamalıdır."
+          },
+          {
+            "text": "Her hassas istekte kullanıcı izinlerini doğrulayın.",
+            "description": "Bir kaynağa erişen bir kullanıcının diğerine erişmesine izin verildiğini varsaymayın."
+          }
+        ]
+      },
+      {
+        "title": "Kriptografi ve Veri Koruma",
+        "items": [
+          {
+            "text": "Aktarım halindeki tüm veriler için TLS/SSL kullanın.",
+            "description": "İstemci ve sunucu arasındaki tüm iletişimi şifreleyin."
+          },
+          {
+            "text": "Durağan haldeki hassas verileri şifreleyin.",
+            "description": "Veritabanlarında, dosya sistemlerinde veya yedeklerde saklanan verileri koruyun."
+          },
+          {
+            "text": "Kesinlikle gerekli olmadıkça hassas verileri saklamayın.",
+            "description": "Verileri korumanın en iyi yolu, onlara sahip olmamaktır."
+          },
+          {
+            "text": "Güçlü, endüstri standardı kriptografik algoritmalar kullanın.",
+            "description": "MD5 veya SHA1 gibi özel veya kullanımdan kaldırılmış algoritmalardan kaçının."
+          }
+        ]
+      },
+      {
+        "title": "Gelişmiş & DevOps",
+        "items": [
+          {
+            "text": "İçerik Güvenliği Politikası (CSP) başlıklarını uygulayın.",
+            "description": "Sayfalarınızda hangi kaynakların (betikler, stiller) yüklenmesine izin verildiğini kontrol edin."
+          },
+          {
+            "text": "Güvenlik açıkları için bağımlılık tarama araçları kullanın.",
+            "description": "Üçüncü taraf kütüphanelerinizi bilinen güvenlik sorunları için otomatik olarak kontrol edin."
+          },
+          {
+            "text": "Düzenli olarak güvenlik kodu incelemeleri yapın.",
+            "description": "Kodunuzdaki potansiyel güvenlik kusurlarını araması için başka bir gözden geçirin."
+          },
+          {
+            "text": "Statik (SAST) ve dinamik (DAST) analizi CI/CD boru hattına entegre edin.",
+            "description": "Derleme ve dağıtım sürecinizin bir parçası olarak güvenlik testini otomatikleştirin."
+          }
+        ]
+      }
+    ]
+  },
+  "Footer": {
+    "copyright": "Bu proje açık kaynaklıdır."
+  },
+  "CopyButton": {
+    "copy": "Panoya kopyala",
+    "copied": "Kopyalandı!"
+  },
+  "LanguageSwitcher": {
+    "select": "Dil seçin"
+  }
+}
