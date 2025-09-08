@@ -18,6 +18,7 @@ export function RealWorldExamples() {
       lesson: t('examples.0.lesson'),
       modalContent: {
         paragraph: t('examples.0.modalContent.paragraph'),
+        imageUrl: "https://picsum.photos/seed/servers/600/400",
         imageHint: "server room"
       }
     },
@@ -28,6 +29,7 @@ export function RealWorldExamples() {
       lesson: t('examples.1.lesson'),
       modalContent: {
         paragraph: t('examples.1.modalContent.paragraph'),
+        imageUrl: "https://picsum.photos/seed/supplychain/600/400",
         imageHint: "software supply chain"
       }
     },
@@ -38,6 +40,7 @@ export function RealWorldExamples() {
       lesson: t('examples.2.lesson'),
       modalContent: {
         paragraph: t('examples.2.modalContent.paragraph'),
+        imageUrl: "https://picsum.photos/seed/cloud/600/400",
         imageHint: "cloud security"
       }
     },
@@ -93,7 +96,7 @@ export function RealWorldExamples() {
                 <div className="py-4 space-y-4">
                    <div className="w-full aspect-video rounded-lg overflow-hidden relative">
                      <Image
-                      src="https://picsum.photos/600/400"
+                      src={ex.modalContent.imageUrl}
                       alt={ex.title}
                       fill
                       className="object-cover"

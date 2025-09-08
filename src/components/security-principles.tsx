@@ -28,7 +28,7 @@ export function SecurityPrinciples() {
       details: t.raw('principles.0.details'),
       modalContent: {
         paragraph: t('principles.0.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/600/400",
+        imageUrl: "https://picsum.photos/seed/datasecurity/600/400",
         imageHint: "data security"
       }
     },
@@ -39,7 +39,7 @@ export function SecurityPrinciples() {
       details: t.raw('principles.1.details'),
       modalContent: {
         paragraph: t('principles.1.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/600/400",
+        imageUrl: "https://picsum.photos/seed/login/600/400",
         imageHint: "login security"
       }
     },
@@ -50,7 +50,7 @@ export function SecurityPrinciples() {
       details: t.raw('principles.2.details'),
        modalContent: {
         paragraph: t('principles.2.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/600/400",
+        imageUrl: "https://picsum.photos/seed/encryption/600/400",
         imageHint: "digital encryption"
       }
     },
@@ -61,7 +61,7 @@ export function SecurityPrinciples() {
       details: t.raw('principles.3.details'),
       modalContent: {
         paragraph: t('principles.3.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/600/400",
+        imageUrl: "https://picsum.photos/seed/logs/600/400",
         imageHint: "server logs"
       }
     },
@@ -72,7 +72,7 @@ export function SecurityPrinciples() {
       details: t.raw('principles.4.details'),
       modalContent: {
         paragraph: t('principles.4.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/600/400",
+        imageUrl: "https://picsum.photos/seed/database/600/400",
         imageHint: "database server"
       }
     },
@@ -83,7 +83,7 @@ export function SecurityPrinciples() {
       details: t.raw('principles.5.details'),
       modalContent: {
         paragraph: t('principles.5.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/600/400",
+        imageUrl: "https://picsum.photos/seed/network/600/400",
         imageHint: "network settings"
       }
     },
@@ -94,7 +94,7 @@ export function SecurityPrinciples() {
       details: t.raw('principles.6.details'),
       modalContent: {
         paragraph: t('principles.6.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/600/400",
+        imageUrl: "https://picsum.photos/seed/access/600/400",
         imageHint: "access control"
       }
     },
