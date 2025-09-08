@@ -199,7 +199,7 @@
         }
       },
       {
-        "vulnerability": "MOVEit Transfer'de SQL Injection",
+        "vulnerability": "MOVEit Transfer'de SQL Enjeksiyonu",
         "impact": "Devlet kurumları dahil 2.700'den fazla kuruluştan veri hırsızlığı, 90 milyondan fazla kişiyi etkiledi.",
         "lesson": "Üçüncü parti yazılımlar saldırı yüzeyinizin bir parçasıdır. Yaygın kullanılan bir araçtaki tek bir sıfır gün zafiyeti feci sonuçlara yol açabilir.",
         "modalContent": {
@@ -211,7 +211,7 @@
         "impact": "Şifrelenmiş müşteri parola kasalarının ve hassas kullanıcı verilerinin çalınması. Tüm LastPass kullanıcılarına ana parolalarını değiştirmeleri tavsiye edildi.",
         "lesson": "Derinlemesine savunma kritiktir. Tek bir başarısızlık noktası (bir geliştiricinin ev bilgisayarı gibi) bir dizi güvenlik başarısızlığına yol açabilir ve bulut güvenliği yanlış yapılandırmaları yıkıcı olabilir.",
         "modalContent": {
-          "paragraph": "2022 LastPass ihlali, üst düzey bir DevOps mühendisinin ev bilgisayarının ele geçirilmesiyle başlayan çok aşamalı bir saldırıydı. Saldırganlar, daha sonra müşteri kasa verilerini içeren bulut tabanlı yedekleme depolama alanına erişmek için kullandıkları kurumsal kasa kimlik bilgilerini çaldılar. Kasalar şifrelenmiş olsa da, saldırganlar hassas, şifrelenmemiş kullanıcı bilgilerini de elde etti. Olay, geliştirici ortamlarını güvence altına almanın ve kritik bulut alapısı için katı, çok katmanlı erişim kontrolleri uygulamanın önemi konusunda sert bir ders oldu."
+          "paragraph": "2022 LastPass ihlali, üst düzey bir DevOps mühendisinin ev bilgisayarının ele geçirilmesiyle başlayan çok aşamalı bir saldırıydı. Saldırganlar, daha sonra müşteri kasa verilerini içeren bulut tabanlı yedekleme depolama alanına erişmek için kullandıkları kurumsal kasa kimlik bilgilerini çaldılar. Kasalar şifrelenmiş olsa da, saldırganlar hassas, şifrelenmemiş kullanıcı bilgilerini de elde etti. Olay, geliştirici ortamlarını güvence altına almanın ve kritik bulut altyapısı için katı, çok katmanlı erişim kontrolleri uygulamanın önemi konusunda sert bir ders oldu."
         }
       },
       {
