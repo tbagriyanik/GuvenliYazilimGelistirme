@@ -50,6 +50,15 @@ export function SecurityChecklist() {
         t('categories.3.items.2'),
         t('categories.3.items.3'),
       ],
+    },
+    {
+      title: t('categories.4.title'),
+      items: [
+        t('categories.4.items.0'),
+        t('categories.4.items.1'),
+        t('categories.4.items.2'),
+        t('categories.4.items.3'),
+      ],
     }
   ];
   

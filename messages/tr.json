@@ -134,21 +134,31 @@
     "vulnerabilityLabel": "Zafiyet",
     "impactLabel": "Etki",
     "lessonLabel": "Anahtar Ders",
+    "readMore": "Devamını Oku",
     "examples": [
       {
         "vulnerability": "Yamasız Apache Struts çerçevesi",
         "impact": "Sosyal Güvenlik numaraları ve ehliyet numaraları da dahil olmak üzere 147 milyon kişinin kişisel verileri ifşa edildi.",
-        "lesson": "Bilinen güvenlik açıklarının zamanında yamalanması kritik öneme sahiptir. Tek bir yamasız sunucu, tüm bir kuruluşu tehlikeye atabilir."
+        "lesson": "Bilinen güvenlik açıklarının zamanında yamalanması kritik öneme sahiptir. Tek bir yamasız sunucu, tüm bir kuruluşu tehlikeye atabilir.",
+        "modalContent": {
+          "paragraph": "2017'de Equifax, Apache Struts web çerçevesindeki bilinen bir güvenlik açığını yamalayamadı. Saldırganlar bu güvenlik açığından yararlanarak şirketin iç ağına erişim sağladı ve tespit edilmeden önce 76 gün boyunca yanal olarak hareket etti. Neredeyse ABD nüfusunun yarısının hassas kişisel bilgilerini sızdırdılar. Olay, zamanında yama yapma ve bir ihlalin patlama yarıçapını sınırlamak için ağ segmentasyonu da dahil olmak üzere sağlam bir güvenlik açığı yönetimi programının kritik önemini vurguladı."
+        }
       },
       {
         "vulnerability": "Ele geçirilmiş derleme sunucusu",
         "impact": "Orion yazılım güncellemelerine kötü amaçlı kod enjekte edildi ve ABD hükümetinin bazı bölümleri de dahil olmak üzere binlerce kuruluşu etkiledi.",
-        "lesson": "Yazılım geliştirme yaşam döngüsünü (SDLC) ve tedarik zincirini güvence altına almak, uygulamanın kendisini güvence altına almak kadar önemlidir."
+        "lesson": "Yazılım geliştirme yaşam döngüsünü (SDLC) ve tedarik zincirini güvence altına almak, uygulamanın kendisini güvence altına almak kadar önemlidir.",
+        "modalContent": {
+          "paragraph": "SolarWinds saldırısı, ulus-devlet aktörlerinin SolarWinds'in Orion Platformu için derleme ortamını tehlikeye attığı karmaşık bir tedarik zinciri saldırısıydı. Daha sonra imzalanan ve rutin bir güncellemenin parçası olarak müşterilere dağıtılan meşru bir DLL dosyasına bir arka kapı enjekte ettiler. Bu truva atı içeren güncelleme, saldırganların binlerce yüksek değerli hedefin ağlarında bir yer edinmesine olanak sağladı. İhlal, derleme sunucusu bütünlüğü ve bağımlılık taraması da dahil olmak üzere yazılım tedarik zinciri boyunca uçtan uca güvenliğin gerekliliğini vurguladı."
+        }
       },
       {
         "vulnerability": "Yanlış yapılandırılmış Web Uygulaması Güvenlik Duvarı (WAF)",
         "impact": "Eski bir çalışan, 100 milyondan fazla kredi kartı başvurusunun verilerine erişmek ve bu verileri dışarı sızdırmak için yanlış yapılandırılmış bir güvenlik duvarından yararlandı.",
-        "lesson": "Bulut hizmetlerinin ve altyapısının güvenli yapılandırılması esastır. Yanlış yapılandırmalar, bulut ihlallerinin önde gelen nedenidir."
+        "lesson": "Bulut hizmetlerinin ve altyapısının güvenli yapılandırılması esastır. Yanlış yapılandırmalar, bulut ihlallerinin önde gelen nedenidir.",
+        "modalContent": {
+          "paragraph": "Eski bir Amazon Web Services çalışanı, hassas müşteri verilerini içeren bir S3 kovasına erişim sağlamak için yanlış yapılandırılmış bir Web Uygulaması Güvenlik Duvarı'ndan (WAF) yararlandı. Saldırgan, daha sonra verilere erişim sağlayan EC2 meta veri hizmetinden geçici kimlik bilgilerini almak için Sunucu Tarafı İstek Sahteciliği (SSRF) saldırıları gerçekleştirebildi. Bu olay, karmaşık bulut hizmetlerinde bile yapılandırmadaki insan hatasının büyük bir tehdit olarak kaldığının açık bir hatırlatıcısıydı. Uygun IAM rolleri ve dikkatli yapılandırma denetimi çok önemlidir."
+        }
       }
     ]
   },
@@ -191,6 +201,15 @@
           "Durağan haldeki hassas verileri şifreleyin.",
           "Kesinlikle gerekli olmadıkça hassas verileri saklamayın.",
           "Güçlü, endüstri standardı kriptografik algoritmalar kullanın."
+        ]
+      },
+      {
+        "title": "Gelişmiş & DevOps",
+        "items": [
+          "İçerik Güvenliği Politikası (CSP) başlıklarını uygulayın.",
+          "Güvenlik açıkları için bağımlılık tarama araçları kullanın.",
+          "Düzenli olarak güvenlik kodu incelemeleri yapın.",
+          "Statik (SAST) ve dinamik (DAST) analizi CI/CD boru hattına entegre edin."
         ]
       }
     ]

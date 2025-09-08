@@ -134,21 +134,31 @@
     "vulnerabilityLabel": "Vulnerability",
     "impactLabel": "Impact",
     "lessonLabel": "Key Lesson",
+    "readMore": "Read More",
     "examples": [
       {
         "vulnerability": "Unpatched Apache Struts framework",
         "impact": "Personal data of 147 million people exposed, including Social Security numbers and driver's license numbers.",
-        "lesson": "Timely patching of known vulnerabilities is critical. A single unpatched server can compromise an entire organization."
+        "lesson": "Timely patching of known vulnerabilities is critical. A single unpatched server can compromise an entire organization.",
+        "modalContent": {
+          "paragraph": "In 2017, Equifax failed to patch a known vulnerability in its Apache Struts web framework. Attackers exploited this vulnerability to gain access to the company's internal network, moving laterally for 76 days before being detected. They exfiltrated sensitive personal information of nearly half the U.S. population. The incident highlighted the critical importance of a robust vulnerability management program, including timely patching and network segmentation to limit the blast radius of a breach."
+        }
       },
       {
         "vulnerability": "Compromised build server",
         "impact": "Malicious code was injected into Orion software updates, affecting thousands of organizations, including parts of the US government.",
-        "lesson": "Securing the software development lifecycle (SDLC) and supply chain is as important as securing the application itself."
+        "lesson": "Securing the software development lifecycle (SDLC) and supply chain is as important as securing the application itself.",
+        "modalContent": {
+          "paragraph": "The SolarWinds attack was a sophisticated supply chain attack where nation-state actors compromised the build environment for SolarWinds' Orion Platform. They injected a backdoor into a legitimate DLL file that was then signed and distributed to customers as part of a routine update. This trojanized update allowed attackers to gain a foothold in the networks of thousands of high-value targets. The breach underscored the need for end-to-end security throughout the software supply chain, including build server integrity and dependency scanning."
+        }
       },
       {
         "vulnerability": "Misconfigured Web Application Firewall (WAF)",
         "impact": "A former employee exploited a misconfigured firewall to access and exfiltrate data of over 100 million credit card applicants.",
-        "lesson": "Secure configuration of cloud services and infrastructure is essential. Misconfigurations are a leading cause of cloud breaches."
+        "lesson": "Secure configuration of cloud services and infrastructure is essential. Misconfigurations are a leading cause of cloud breaches.",
+        "modalContent": {
+          "paragraph": "A former Amazon Web Services employee exploited a misconfigured Web Application Firewall (WAF) to gain access to an S3 bucket containing sensitive customer data. The attacker was able to execute Server-Side Request Forgery (SSRF) attacks to retrieve temporary credentials from the EC2 metadata service, which then granted access to the data. This incident was a stark reminder that even with sophisticated cloud services, human error in configuration remains a major threat. Proper IAM roles and vigilant configuration auditing are paramount."
+        }
       }
     ]
   },
@@ -191,6 +201,15 @@
           "Encrypt sensitive data at rest.",
           "Do not store sensitive data unless absolutely necessary.",
           "Use strong, industry-standard cryptographic algorithms."
+        ]
+      },
+      {
+        "title": "Advanced & DevOps",
+        "items": [
+          "Implement Content Security Policy (CSP) headers.",
+          "Use dependency scanning tools for vulnerabilities.",
+          "Perform regular security code reviews.",
+          "Integrate static (SAST) and dynamic (DAST) analysis into CI/CD pipeline."
         ]
       }
     ]
