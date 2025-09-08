@@ -1,3 +1,4 @@
+
 {
   "Header": {
     "brand": "Güvenli Uygulama Geliştirme",
@@ -22,7 +23,7 @@
         "title": "Giriş Doğrulaması",
         "description": "Kullanıcı girdisine asla güvenmeyin. Dış kaynaklardan gelen tüm verileri doğrulayın, temizleyin ve kodlayın.",
         "details": [
-          "Doğrulama için engelleme listeleri değil, izin listeleri kullanın.",
+          "Doğrulama için engelleleme listeleri değil, izin listeleri kullanın.",
           "Parametreli sorgularla SQL Enjeksiyonunu önleyin.",
           "Siteler Arası Komut Dosyası Çalıştırmayı (XSS) durdurmak için çıktıyı kodlayın."
         ],
