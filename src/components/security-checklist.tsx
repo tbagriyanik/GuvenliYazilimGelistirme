@@ -25,9 +25,10 @@ type ChecklistCategory = {
 export function SecurityChecklist() {
   const t = useTranslations('SecurityChecklist');
 
-  // Load the entire array of categories directly from the translation file.
   const checklistCategories: ChecklistCategory[] = t.raw('categories');
   
+  const defaultOpenValues = checklistCategories.map((_, index) => `item-${index}`);
+
   return (
     <section id="checklist" className="py-16 md:py-24 bg-muted/20">
       <div className="container mx-auto px-4 md:px-6">
@@ -38,7 +39,7 @@ export function SecurityChecklist() {
           </p>
         </div>
         <div className="max-w-3xl mx-auto glass-card rounded-lg p-4 md:p-6">
-          <Accordion type="multiple" className="w-full">
+          <Accordion type="multiple" defaultValue={defaultOpenValues} className="w-full">
             {checklistCategories.map((category, index) => (
               <AccordionItem value={`item-${index}`} key={category.title} className="border-b-white/10">
                 <AccordionTrigger className="text-lg font-semibold hover:no-underline text-center justify-center">{category.title}</AccordionTrigger>
