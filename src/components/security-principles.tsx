@@ -2,15 +2,32 @@
 
 import Image from 'next/image';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
 import { Button } from './ui/button';
 import { ShieldCheck, Lock, KeyRound, ShieldAlert, DatabaseZap, Settings, UserMinus, type LucideIcon, ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { usePathname, useRouter } from '@/navigation';
+import { useSearchParams } from 'next/navigation';
+import { useCallback } from 'react';
 
 export function SecurityPrinciples() {
   const t = useTranslations('SecurityPrinciples');
-  
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const handleOpenChange = useCallback((open: boolean, modalId: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (open) {
+      params.set('modal', modalId);
+    } else {
+      params.delete('modal');
+    }
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+  }, [pathname, router, searchParams]);
+
   const principles: {
+    id: string;
     title: string;
     description: string;
     Icon: LucideIcon;
@@ -22,6 +39,7 @@ export function SecurityPrinciples() {
     };
   }[] = [
     {
+      id: "input-validation",
       title: t('principles.0.title'),
       description: t('principles.0.description'),
       Icon: ShieldCheck,
@@ -33,6 +51,7 @@ export function SecurityPrinciples() {
       }
     },
     {
+      id: "auth",
       title: t('principles.1.title'),
       description: t('principles.1.description'),
       Icon: Lock,
@@ -44,6 +63,7 @@ export function SecurityPrinciples() {
       }
     },
     {
+      id: "crypto",
       title: t('principles.2.title'),
       description: t('principles.2.description'),
       Icon: KeyRound,
@@ -55,6 +75,7 @@ export function SecurityPrinciples() {
       }
     },
     {
+      id: "error-handling",
       title: t('principles.3.title'),
       description: t('principles.3.description'),
       Icon: ShieldAlert,
@@ -66,6 +87,7 @@ export function SecurityPrinciples() {
       }
     },
     {
+      id: "data-protection",
       title: t('principles.4.title'),
       description: t('principles.4.description'),
       Icon: DatabaseZap,
@@ -77,6 +99,7 @@ export function SecurityPrinciples() {
       }
     },
     {
+      id: "secure-config",
       title: t('principles.5.title'),
       description: t('principles.5.description'),
       Icon: Settings,
@@ -88,6 +111,7 @@ export function SecurityPrinciples() {
       }
     },
     {
+      id: "least-privilege",
       title: t('principles.6.title'),
       description: t('principles.6.description'),
       Icon: UserMinus,
@@ -100,6 +124,8 @@ export function SecurityPrinciples() {
     },
   ];
 
+  const activeModal = searchParams.get('modal');
+
   return (
     <section id="principles" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -111,7 +137,7 @@ export function SecurityPrinciples() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {principles.map((p) => (
-             <Dialog key={p.title}>
+             <Dialog key={p.id} open={activeModal === p.id} onOpenChange={(open) => handleOpenChange(open, p.id)}>
               <Card className="flex flex-col text-center items-center transition-transform hover:-translate-y-2 hover:shadow-lg">
                 <CardHeader className="w-full">
                   <div className="mx-auto bg-primary/10 p-3 rounded-full mb-4 w-fit">
@@ -131,11 +157,9 @@ export function SecurityPrinciples() {
                   </ul>
                 </CardContent>
                 <CardFooter className="w-full">
-                  <DialogTrigger asChild>
-                    <Button variant="outline" className="w-full">
+                   <Button variant="outline" className="w-full" onClick={() => handleOpenChange(true, p.id)}>
                       {t('learnMore')} <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </DialogTrigger>
+                   </Button>
                 </CardFooter>
               </Card>
               <DialogContent className="sm:max-w-[625px]">
@@ -150,6 +174,8 @@ export function SecurityPrinciples() {
                       fill
                       className="object-cover"
                       data-ai-hint={p.modalContent.imageHint}
+                      width={600}
+                      height={400}
                     />
                    </div>
                   <p className="text-muted-foreground">

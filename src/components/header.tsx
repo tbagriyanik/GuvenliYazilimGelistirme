@@ -42,7 +42,7 @@ export function Header() {
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary transition-transform hover:scale-105">
           <Shield className="h-7 w-7" />
-          <span>SecureBase</span>
+          <span>{t('brand')}</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
@@ -65,7 +65,7 @@ export function Header() {
               <div className="flex flex-col gap-6 p-6">
                  <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary mb-4" onClick={() => setIsMobileMenuOpen(false)}>
                     <Shield className="h-7 w-7" />
-                    <span>SecureBase</span>
+                    <span>{t('brand')}</span>
                   </Link>
                 {navItems.map((item) => (
                   <Link key={item.name} href={item.href} className="text-lg font-medium hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>

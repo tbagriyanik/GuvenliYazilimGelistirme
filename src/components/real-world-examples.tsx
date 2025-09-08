@@ -1,17 +1,34 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { AlertTriangle, ShieldOff, Target, ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
 import { Button } from './ui/button';
 import Image from 'next/image';
+import { usePathname, useRouter } from "@/navigation";
+import { useSearchParams } from "next/navigation";
+import { useCallback } from "react";
 
 export function RealWorldExamples() {
   const t = useTranslations('RealWorldExamples');
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const handleOpenChange = useCallback((open: boolean, modalId: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (open) {
+      params.set('modal', modalId);
+    } else {
+      params.delete('modal');
+    }
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+  }, [pathname, router, searchParams]);
   
   const examples = [
     {
+      id: "equifax",
       title: "Equifax Data Breach (2017)",
       vulnerability: t('examples.0.vulnerability'),
       impact: t('examples.0.impact'),
@@ -23,6 +40,7 @@ export function RealWorldExamples() {
       }
     },
     {
+      id: "solarwinds",
       title: "SolarWinds Supply Chain Attack (2020)",
       vulnerability: t('examples.1.vulnerability'),
       impact: t('examples.1.impact'),
@@ -34,6 +52,7 @@ export function RealWorldExamples() {
       }
     },
     {
+      id: "capitalone",
       title: "Capital One Data Breach (2019)",
       vulnerability: t('examples.2.vulnerability'),
       impact: t('examples.2.impact'),
@@ -46,6 +65,8 @@ export function RealWorldExamples() {
     },
   ];
 
+  const activeModal = searchParams.get('modal');
+
   return (
     <section id="examples" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -57,7 +78,7 @@ export function RealWorldExamples() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {examples.map((ex) => (
-            <Dialog key={ex.title}>
+            <Dialog key={ex.id} open={activeModal === ex.id} onOpenChange={(open) => handleOpenChange(open, ex.id)}>
               <Card className="flex flex-col">
                 <CardHeader>
                   <CardTitle>{ex.title}</CardTitle>
@@ -82,11 +103,9 @@ export function RealWorldExamples() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <DialogTrigger asChild>
-                    <Button variant="outline" className="w-full">
-                      {t('readMore')} <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </DialogTrigger>
+                  <Button variant="outline" className="w-full" onClick={() => handleOpenChange(true, ex.id)}>
+                    {t('readMore')} <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
                 </CardFooter>
               </Card>
               <DialogContent className="sm:max-w-[625px]">
@@ -101,6 +120,8 @@ export function RealWorldExamples() {
                       fill
                       className="object-cover"
                       data-ai-hint={ex.modalContent.imageHint}
+                      width={600}
+                      height={400}
                     />
                    </div>
                   <p className="text-muted-foreground">
