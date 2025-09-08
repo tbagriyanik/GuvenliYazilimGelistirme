@@ -1,3 +1,4 @@
+
 {
   "Header": {
     "brand": "Secure Application Development",
@@ -20,86 +21,86 @@
     "principles": [
       {
         "title": "Input Validation",
-        "description": "Never trust user input. Validate, sanitize, and encode all data from external sources.",
+        "description": "Never trust user input. Use whitelisting and prepared statements to prevent injection attacks.",
         "details": [
-          "Use allow-lists for validation, not block-lists.",
-          "Prevent SQL Injection with parameterized queries.",
-          "Encode output to stop Cross-Site Scripting (XSS)."
+          "Adopt a whitelist approach, accepting only allowed characters.",
+          "Use regular expressions for validation (e.g., email format).",
+          "Secure SQL queries with prepared statements."
         ],
         "modalContent": {
-          "paragraph": "Input validation is the first line of defense against many common web application vulnerabilities. It involves ensuring that any data received from a user or external system conforms to expected formats, types, and lengths before it's processed. Failing to validate input can lead to code injection, buffer overflows, and other serious security flaws. Always treat external data as untrusted and validate it on the server-side, even if client-side validation is already in place."
+          "paragraph": "Input validation is the first line of defense against attacks like SQL Injection and Cross-Site Scripting (XSS). It involves ensuring that any data received from a user conforms to expected formats before processing. A whitelist approach, which only allows known-good characters, is far more secure than a blacklist that tries to block malicious input. For database interactions, always use prepared statements or parameterized queries to ensure user input is treated as data, not executable code."
         }
       },
       {
-        "title": "Authentication & Authorization",
-        "description": "Verify who a user is (authentication) and what they are allowed to do (authorization).",
+        "title": "Authentication",
+        "description": "Verify user identity with strong policies, multi-factor authentication, and secure token management.",
         "details": [
-          "Enforce strong password policies and MFA.",
-          "Use secure session management.",
-          "Implement Role-Based Access Control (RBAC)."
+          "Enforce strong password policies (length, complexity) and hashing (bcrypt).",
+          "Implement Multi-Factor Authentication (MFA), preferably with app-based OTP.",
+          "Ensure JWTs have an expiration and validate issuer/audience claims."
         ],
         "modalContent": {
-          "paragraph": "Authentication confirms a user's identity, typically with credentials like a password and increasingly with multi-factor authentication (MFA). Authorization determines what an authenticated user is permitted to do. A common mistake is to perform an action based only on a user's ID without checking if that user has the specific rights to perform that action. Proper authorization checks must be enforced on every sensitive request to prevent unauthorized access to data and functionality."
+          "paragraph": "Authentication confirms a user's identity. It starts with a strong password policy, requiring complexity and minimum length. Passwords must never be stored in plaintext; use a strong, salted hashing algorithm like bcrypt or Argon2. Multi-Factor Authentication (MFA) adds a critical second layer of security. When using JSON Web Tokens (JWTs), always enforce a short expiration time and validate the issuer (iss) and audience (aud) claims on the server to prevent token misuse."
+        }
+      },
+      {
+        "title": "Authorization",
+        "description": "Enforce what an authenticated user is allowed to do, following the Principle of Least Privilege.",
+        "details": [
+          "Implement Role-Based Access Control (RBAC) for manageable permissions.",
+          "Apply the Principle of Least Privilege; grant only necessary permissions.",
+          "Perform authorization checks at the API level for every sensitive request."
+        ],
+        "modalContent": {
+          "paragraph": "Authorization determines the permissions of an authenticated user. Role-Based Access Control (RBAC) is a standard model for managing these permissions efficiently. The core concept is the Principle of Least Privilege: a user or service should only have the minimum permissions required to perform its function. This must be enforced on the server-side for every request, especially at the API level, to prevent users from accessing data or performing actions they are not entitled to."
+        }
+      },
+      {
+        "title": "Secure Error Handling",
+        "description": "Fail securely without leaking sensitive information to the user. Log detailed errors on the server.",
+        "details": [
+          "Display generic error messages to the user, like 'An error occurred'.",
+          "Keep detailed error logs, including stack traces, only on the server.",
+          "Never expose stack traces or system details in client-facing errors."
+        ],
+        "modalContent": {
+          "paragraph": "Secure error handling is crucial for preventing information leakage. Attackers can use detailed error messages to learn about your system's architecture, frameworks, and potential vulnerabilities. Therefore, users should only see generic, uninformative error messages. Detailed logs, including stack traces and debugging information, should be written exclusively to a secure, server-side logging system for developers to analyze."
+        }
+      },
+      {
+        "title": "Session Management",
+        "description": "Protect user sessions with secure cookie flags, timeouts, and proper invalidation.",
+        "details": [
+          "Set HttpOnly and Secure flags on session cookies.",
+          "Implement a reasonable session timeout (e.g., 15-30 minutes of inactivity).",
+          "Properly invalidate tokens and sessions upon logout."
+        ],
+        "modalContent": {
+          "paragraph": "Proper session management is key to preventing session hijacking. Session cookies must be configured with the 'HttpOnly' flag to prevent access from JavaScript and the 'Secure' flag to ensure they are only sent over HTTPS. Implementing a session timeout automatically logs out inactive users, reducing the window of opportunity for an attacker. Finally, ensure that logging out properly invalidates the session on the server-side, not just on the client."
         }
       },
       {
         "title": "Cryptography",
-        "description": "Protect data in transit and at rest using strong, industry-standard encryption.",
+        "description": "Use strong, industry-standard cryptographic algorithms and secure key management.",
         "details": [
-          "Use TLS for all network communication.",
-          "Encrypt sensitive data like PII in databases.",
-          "Never create your own cryptographic algorithms."
+          "Use AES-256-GCM for symmetric encryption.",
+          "Use RSA-2048 or ECC for asymmetric encryption.",
+          "Enforce TLS 1.2+ for data in transit and use HSTS headers."
         ],
         "modalContent": {
-          "paragraph": "Cryptography uses mathematical algorithms to transform data into a format that is unreadable without a secret key. It's essential for protecting data confidentiality and integrity. Data in transit should always be encrypted using protocols like TLS (Transport Layer Security) to prevent eavesdropping. Sensitive data at rest, such as customer information in a database, should also be encrypted. It's critical to use well-vetted, standard cryptographic libraries and to avoid inventing custom encryption schemes, which are often flawed."
+          "paragraph": "Cryptography protects data confidentiality and integrity. Always use well-vetted, standard algorithms. For symmetric encryption, AES-256 with GCM mode is the recommended standard. For asymmetric scenarios, like key exchange, use RSA-2048 or Elliptic Curve Cryptography (ECC). All data in transit must be encrypted using TLS 1.2 or higher. The HSTS (HTTP Strict Transport Security) header should be used to enforce that browsers only connect to your site via HTTPS."
         }
       },
       {
-        "title": "Error Handling & Logging",
-        "description": "Fail securely without leaking sensitive information. Log events for monitoring and forensics.",
+        "title": "DevSecOps",
+        "description": "Integrate security practices into the entire development lifecycle, from coding to deployment.",
         "details": [
-          "Avoid exposing stack traces or system info in errors.",
-          "Log authentication attempts, access control failures, etc.",
-          "Ensure logs are protected from tampering."
+          "Integrate SAST (Static Analysis) scans before code merge.",
+          "Run DAST (Dynamic Analysis) and dependency scans before deployment.",
+          "Implement secret detection to prevent API keys and tokens from leaking."
         ],
         "modalContent": {
-          "paragraph": "Secure error handling prevents the leakage of sensitive information to attackers. Verbose error messages can reveal system paths, library versions, or database structures, which can aid an attacker. Instead, show generic error messages to users and log detailed, specific information on the server for developers. Comprehensive logging of security-relevant events is crucial for detecting attacks, investigating breaches, and understanding how a system is being used or abused."
-        }
-      },
-      {
-        "title": "Data Protection",
-        "description": "Classify data by sensitivity and apply appropriate security controls.",
-        "details": [
-          "Minimize the data you collect and store.",
-          "Protect sensitive data at rest and in transit.",
-          "Have a clear data retention and disposal policy."
-        ],
-        "modalContent": {
-          "paragraph": "Data protection involves understanding the data your application handles, classifying it based on sensitivity (e.g., public, internal, confidential), and applying security controls that are appropriate for that classification. This includes data minimization—collecting and retaining only the data that is absolutely necessary. Secure data disposal is also vital; simply deleting a file often leaves it recoverable, so proper data wiping or destruction techniques should be used when data is no longer needed."
-        }
-      },
-      {
-        "title": "Secure Configuration",
-        "description": "Harden all components of your stack, from servers to frameworks.",
-        "details": [
-          "Remove default credentials and unused features.",
-          "Keep all software and libraries up to date.",
-          "Regularly audit configurations for weaknesses."
-        ],
-        "modalContent": {
-          "paragraph": "Many systems are insecure out-of-the-box. Secure configuration involves hardening every layer of the technology stack, including the operating system, web server, application server, and database. This means changing default passwords, disabling unnecessary services and features, and configuring security settings to be as restrictive as possible. Automated configuration management and regular security audits can help maintain a strong security posture and prevent configuration drift over time."
-        }
-      },
-      {
-        "title": "Principle of Least Privilege",
-        "description": "Grant users and processes only the minimum permissions necessary to do their job.",
-        "details": [
-          "Avoid running processes with root/admin rights.",
-          "Limit database user permissions.",
-          "Regularly review user access rights."
-        ],
-        "modalContent": {
-          "paragraph": "The Principle of Least Privilege dictates that any user, program, or process should have only the bare minimum privileges necessary to perform its function. For example, a web application should connect to the database with a user account that can only perform required actions (SELECT, INSERT, UPDATE) on specific tables, rather than using a high-powered administrative account. This principle limits the damage that can result from an accident, error, or exploit."
+          "paragraph": "DevSecOps is the practice of automating and integrating security at every phase of the software development lifecycle. This includes using Static Application Security Testing (SAST) tools to scan code for vulnerabilities as it's written, and Dynamic Application Security Testing (DAST) tools to test the running application. Automating dependency scanning and secret detection in the CI/CD pipeline helps catch vulnerabilities and leaked credentials before they reach production."
         }
       }
     ]
@@ -138,141 +139,116 @@
     "readMore": "Read More",
     "examples": [
       {
-        "vulnerability": "Unpatched Apache Struts framework",
-        "impact": "Personal data of 147 million people exposed, including Social Security numbers and driver's license numbers.",
-        "lesson": "Timely patching of known vulnerabilities is critical. A single unpatched server can compromise an entire organization.",
+        "vulnerability": "Memory leakage in OpenSSL (Heartbleed)",
+        "impact": "Exposed sensitive data from server memory, including private keys and user credentials.",
+        "lesson": "Even foundational libraries can have critical flaws. Keep all system components and libraries patched and up-to-date.",
         "modalContent": {
-          "paragraph": "In 2017, Equifax failed to patch a known vulnerability in its Apache Struts web framework. Attackers exploited this vulnerability to gain access to the company's internal network, moving laterally for 76 days before being detected. They exfiltrated sensitive personal information of nearly half the U.S. population. The incident highlighted the critical importance of a robust vulnerability management program, including timely patching and network segmentation to limit the blast radius of a breach."
+          "paragraph": "The Heartbleed bug was a severe vulnerability in the OpenSSL cryptographic library. It allowed attackers to read the memory of servers, exposing sensitive information like session tokens, passwords, and the server's private keys. The incident served as a powerful reminder that security depends on every component of the stack, and that keeping dependencies updated is non-negotiable for maintaining a secure posture."
         }
       },
       {
-        "vulnerability": "Compromised build server",
-        "impact": "Malicious code was injected into Orion software updates, affecting thousands of organizations, including parts of the US government.",
-        "lesson": "Securing the software development lifecycle (SDLC) and supply chain is as important as securing the application itself.",
+        "vulnerability": "Remote Code Execution in Log4j (Log4Shell)",
+        "impact": "Allowed unauthenticated remote code execution on countless servers, affecting a vast range of software.",
+        "lesson": "Open-source dependency security is critical. Supply chain vulnerabilities can have a massive and immediate impact.",
         "modalContent": {
-          "paragraph": "The SolarWinds attack was a sophisticated supply chain attack where nation-state actors compromised the build environment for SolarWinds' Orion Platform. They injected a backdoor into a legitimate DLL file that was then signed and distributed to customers as part of a routine update. This trojanized update allowed attackers to gain a foothold in the networks of thousands of high-value targets. The breach underscored the need for end-to-end security throughout the software supply chain, including build server integrity and dependency scanning."
+          "paragraph": "Log4Shell was a zero-day vulnerability in Log4j, a popular Java logging library. It was incredibly easy to exploit, allowing attackers to execute arbitrary code on servers by simply sending a crafted string that the library would log. This highlighted the immense risk of supply chain attacks and emphasized the need for Software Bill of Materials (SBOM) and robust dependency scanning to quickly identify and patch vulnerable components."
         }
       },
       {
-        "vulnerability": "Misconfigured Web Application Firewall (WAF)",
-        "impact": "A former employee exploited a misconfigured firewall to access and exfiltrate data of over 100 million credit card applicants.",
-        "lesson": "Secure configuration of cloud services and infrastructure is essential. Misconfigurations are a leading cause of cloud breaches.",
+        "vulnerability": "Compromised build server (SolarWinds)",
+        "impact": "Malicious code was injected into software updates, creating a backdoor into thousands of organizations, including government agencies.",
+        "lesson": "Securing the software build and supply chain is as important as securing the application itself. Trust must be verified at every step.",
         "modalContent": {
-          "paragraph": "A former Amazon Web Services employee exploited a misconfigured Web Application Firewall (WAF) to gain access to an S3 bucket containing sensitive customer data. The attacker was able to execute Server-Side Request Forgery (SSRF) attacks to retrieve temporary credentials from the EC2 metadata service, which then granted access to the data. This incident was a stark reminder that even with sophisticated cloud services, human error in configuration remains a major threat. Proper IAM roles and vigilant configuration auditing are paramount."
+          "paragraph": "The SolarWinds attack was a sophisticated supply chain attack where malicious code was injected into the Orion software during the build process. This trojanized update was then signed and distributed to customers. It created a backdoor, allowing attackers to compromise thousands of high-value networks. The breach underscored the need for end-to-end security in the CI/CD pipeline, including build server integrity, dependency verification, and signed artifacts."
         }
       }
     ]
   },
   "SecurityChecklist": {
-    "title": "Interactive Security Checklist",
+    "title": "Application Security Checklist",
     "subtitle": "Use this checklist to audit your application against common security best practices. Expand each section to review the items.",
     "categories": [
       {
-        "title": "Input & Data Validation",
+        "title": "Web Application Security",
         "items": [
           {
-            "text": "Sanitize all user inputs on the server-side.",
-            "description": "Always clean data on the backend, even if you have client-side validation."
-          },
-          {
-            "text": "Use parameterized queries to prevent SQL injection.",
-            "description": "Never concatenate user input directly into database queries."
-          },
-          {
-            "text": "Validate data type, length, format, and range.",
-            "description": "Ensure incoming data conforms to expected patterns before processing."
+            "text": "Prevent SQL Injection with parameterized queries.",
+            "description": "Ensure user input is never directly concatenated into SQL queries."
           },
           {
             "text": "Encode output to prevent Cross-Site Scripting (XSS).",
-            "description": "Convert special characters to HTML entities before rendering user-provided content."
+            "description": "Sanitize and encode all user-provided data before rendering it in the UI."
+          },
+          {
+            "text": "Implement Anti-CSRF tokens in forms.",
+            "description": "Use hidden tokens to verify that state-changing requests come from your application."
+          },
+          {
+            "text": "Enable Content Security Policy (CSP) headers.",
+            "description": "Restrict the sources of content, such as scripts and styles, that browsers are allowed to load."
           }
         ]
       },
       {
-        "title": "Authentication & Session Management",
+        "title": "API Security",
         "items": [
           {
-            "text": "Enforce strong password policies.",
-            "description": "Require a mix of character types, minimum length, and avoid common passwords."
+            "text": "Implement rate limiting on all endpoints.",
+            "description": "Prevent abuse and denial-of-service attacks by limiting request frequency."
           },
           {
-            "text": "Implement multi-factor authentication (MFA).",
-            "description": "Add a second layer of security beyond just a password."
+            "text": "Use API keys and HMAC for authentication.",
+            "description": "Secure server-to-server communication with strong authentication mechanisms."
           },
           {
-            "text": "Generate new session IDs upon login.",
-            "description": "Helps prevent session fixation attacks."
+            "text": "Enforce authorization on every request.",
+            "description": "Verify that the authenticated user has permission for the requested action."
           },
           {
-            "text": "Securely store password hashes (e.g., using bcrypt).",
-            "description": "Never store passwords in plain text; always use a strong, salted hashing algorithm."
-          },
-          {
-            "text": "Implement secure password recovery mechanisms.",
-            "description": "Ensure the process doesn't leak information and is resistant to brute-force."
+            "text": "Maintain detailed logs for all API requests.",
+            "description": "Log requests and responses to monitor for suspicious activity and aid in incident response."
           }
         ]
       },
       {
-        "title": "Access Control",
+        "title": "Mobile Application Security",
         "items": [
           {
-            "text": "Enforce the Principle of Least Privilege.",
-            "description": "Give accounts and processes only the permissions they absolutely need."
+            "text": "Securely store data on the device.",
+            "description": "Encrypt sensitive data stored locally (e.g., using encrypted SharedPreferences/Keychain)."
           },
           {
-            "text": "Implement role-based access control (RBAC).",
-            "description": "Manage permissions through roles rather than assigning them to individual users."
+            "text": "Implement root/jailbreak detection.",
+            "description": "Add checks to detect compromised device environments, which can expose your app to more risks."
           },
           {
-            "text": "Deny access by default.",
-            "description": "Only grant access explicitly; the default state should be no access."
+            "text": "Use certificate pinning for API communication.",
+            "description": "Protect against man-in-the-middle attacks by trusting only a specific server certificate."
           },
           {
-            "text": "Validate user permissions on every sensitive request.",
-            "description": "Don't assume a user who accessed one resource is allowed to access another."
+            "text": "Regularly test the app against decompilation.",
+            "description": "Use tools like MobSF to understand what an attacker can see by reverse-engineering your app."
           }
         ]
       },
       {
-        "title": "Cryptography & Data Protection",
+        "title": "Cloud & Container Security",
         "items": [
           {
-            "text": "Use TLS/SSL for all data in transit.",
-            "description": "Encrypt all communication between the client and server."
+            "text": "Apply 'least privilege' in IAM policies.",
+            "description": "Ensure users and services have only the minimum permissions necessary to function."
           },
           {
-            "text": "Encrypt sensitive data at rest.",
-            "description": "Protect data stored in databases, filesystems, or backups."
+            "text": "Scan container images for vulnerabilities.",
+            "description": "Use tools like Trivy to scan Docker images for known security issues before deployment."
           },
           {
-            "text": "Do not store sensitive data unless absolutely necessary.",
-            "description": "The best way to protect data is not to have it in the first place."
+            "text": "Run containers as non-root users.",
+            "description": "Limit the potential damage of a container compromise by avoiding root privileges."
           },
           {
-            "text": "Use strong, industry-standard cryptographic algorithms.",
-            "description": "Avoid custom or deprecated algorithms like MD5 or SHA1."
-          }
-        ]
-      },
-      {
-        "title": "Advanced & DevOps",
-        "items": [
-          {
-            "text": "Implement Content Security Policy (CSP) headers.",
-            "description": "Control which resources (scripts, styles) are allowed to load on your pages."
-          },
-          {
-            "text": "Use dependency scanning tools for vulnerabilities.",
-            "description": "Automatically check your third-party libraries for known security issues."
-          },
-          {
-            "text": "Perform regular security code reviews.",
-            "description": "Have another set of eyes look for potential security flaws in your code."
-          },
-          {
-            "text": "Integrate static (SAST) and dynamic (DAST) analysis into CI/CD pipeline.",
-            "description": "Automate security testing as part of your build and deployment process."
+            "text": "Enable logging and monitoring (e.g., CloudTrail).",
+            "description": "Keep a detailed audit trail of all actions performed in your cloud environment."
           }
         ]
       }
