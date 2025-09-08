@@ -106,7 +106,7 @@ export function RealWorldExamples() {
   const activeModal = searchParams.get('modal');
 
   return (
-    <section id="examples" className="py-16 md:py-24 bg-muted/20">
+    <section id="examples" className="py-16 md:py-24 bg-card">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold font-headline">{t('title')}</h2>
@@ -141,7 +141,7 @@ export function RealWorldExamples() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button variant="outline" className="w-full" onClick={() => handleOpenChange(true, ex.id)}>
+                  <Button variant="secondary" className="w-full" onClick={() => handleOpenChange(true, ex.id)}>
                     {t('readMore')} <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardFooter>
@@ -172,5 +172,3 @@ export function RealWorldExamples() {
     </section>
   );
 }
-
-    
