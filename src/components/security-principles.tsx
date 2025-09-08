@@ -9,6 +9,7 @@ import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from '@/navigation';
 import { useSearchParams } from 'next/navigation';
 import { useCallback } from 'react';
+import { cn } from '@/lib/utils';
 
 export function SecurityPrinciples() {
   const t = useTranslations('SecurityPrinciples');
@@ -127,10 +128,10 @@ export function SecurityPrinciples() {
   const activeModal = searchParams.get('modal');
 
   return (
-    <section id="principles" className="py-16 md:py-24 bg-background">
+    <section id="principles" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary font-headline">{t('title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-headline">{t('title')}</h2>
           <p className="mt-4 text-muted-foreground">
             {t('subtitle')}
           </p>
@@ -138,9 +139,9 @@ export function SecurityPrinciples() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {principles.map((p) => (
              <Dialog key={p.id} open={activeModal === p.id} onOpenChange={(open) => handleOpenChange(open, p.id)}>
-              <Card className="flex flex-col text-center items-center transition-transform hover:-translate-y-2 hover:shadow-lg">
+              <Card className="glass-card flex flex-col text-center items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 <CardHeader className="w-full">
-                  <div className="mx-auto bg-primary/10 p-3 rounded-full mb-4 w-fit">
+                  <div className="mx-auto bg-primary/20 p-3 rounded-full mb-4 w-fit">
                     <p.Icon className="h-8 w-8 text-primary" />
                   </div>
                   <CardTitle>{p.title}</CardTitle>
@@ -162,7 +163,7 @@ export function SecurityPrinciples() {
                    </Button>
                 </CardFooter>
               </Card>
-              <DialogContent className="sm:max-w-[625px]">
+              <DialogContent className={cn("sm:max-w-[625px]", "glass-card")}>
                 <DialogHeader>
                   <DialogTitle className="text-2xl">{p.title}</DialogTitle>
                 </DialogHeader>

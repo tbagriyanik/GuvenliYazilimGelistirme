@@ -8,16 +8,16 @@ export function Hero() {
   const t = useTranslations('Hero');
 
   return (
-    <section className="py-24 md:py-32 bg-card border-b">
+    <section className="py-24 md:py-32">
       <div className="container mx-auto text-center px-4 md:px-6">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-primary font-headline">
+        <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-primary-foreground font-headline">
           {t('title')}
         </h1>
         <p className="mx-auto mt-4 max-w-[700px] text-lg text-muted-foreground">
           {t('subtitle')}
         </p>
         <div className="mt-8">
-          <Button asChild size="lg" className="transition-transform hover:scale-105">
+          <Button asChild size="lg" className="transition-transform hover:scale-105 bg-primary text-primary-foreground hover:bg-primary/90">
             <Link href="#principles">{t('cta')}</Link>
           </Button>
         </div>

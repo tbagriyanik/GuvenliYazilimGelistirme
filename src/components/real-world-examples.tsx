@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { usePathname, useRouter } from "@/navigation";
 import { useSearchParams } from "next/navigation";
 import { useCallback } from "react";
+import { cn } from "@/lib/utils";
 
 export function RealWorldExamples() {
   const t = useTranslations('RealWorldExamples');
@@ -68,10 +69,10 @@ export function RealWorldExamples() {
   const activeModal = searchParams.get('modal');
 
   return (
-    <section id="examples" className="py-16 md:py-24 bg-background">
+    <section id="examples" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary font-headline">{t('title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-headline">{t('title')}</h2>
           <p className="mt-4 text-muted-foreground">
             {t('subtitle')}
           </p>
@@ -79,7 +80,7 @@ export function RealWorldExamples() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {examples.map((ex) => (
             <Dialog key={ex.id} open={activeModal === ex.id} onOpenChange={(open) => handleOpenChange(open, ex.id)}>
-              <Card className="flex flex-col">
+              <Card className="glass-card flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 <CardHeader>
                   <CardTitle>{ex.title}</CardTitle>
                 </CardHeader>
@@ -108,7 +109,7 @@ export function RealWorldExamples() {
                   </Button>
                 </CardFooter>
               </Card>
-              <DialogContent className="sm:max-w-[625px]">
+              <DialogContent className={cn("sm:max-w-[625px]", "glass-card")}>
                 <DialogHeader>
                   <DialogTitle className="text-2xl">{ex.title}</DialogTitle>
                 </DialogHeader>

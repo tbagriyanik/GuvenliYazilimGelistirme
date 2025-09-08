@@ -85,16 +85,16 @@ export function CodeSnippetGenerator() {
   }
 
   return (
-    <section id="generator" className="py-16 md:py-24 bg-card border-y">
+    <section id="generator" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary font-headline">{t('title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-headline">{t('title')}</h2>
           <p className="mt-4 text-muted-foreground">
             {t('subtitle')}
           </p>
         </div>
         <div className="max-w-4xl mx-auto">
-          <Card>
+          <Card className="glass-card">
             <CardContent className="p-6">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -155,7 +155,7 @@ export function CodeSnippetGenerator() {
           {(isPending || generatedCode) && (
             <div className="mt-8">
               <h3 className="font-semibold mb-2 text-center">{t('generatedCodeTitle')}</h3>
-              <Card className="bg-gray-900 text-gray-100 font-mono text-sm relative">
+              <Card className="bg-gray-900/80 text-gray-100 font-mono text-sm relative glass-card">
                   <div className="absolute top-2 right-2 z-10">
                     <CopyButton text={generatedCode} />
                   </div>
