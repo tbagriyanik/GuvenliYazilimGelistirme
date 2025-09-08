@@ -197,6 +197,30 @@
         "modalContent": {
           "paragraph": "The SolarWinds attack was a sophisticated supply chain attack where malicious code was injected into the Orion software during the build process. This trojanized update was then signed and distributed to customers. It created a backdoor, allowing attackers to compromise thousands of high-value networks. The breach underscored the need for end-to-end security in the CI/CD pipeline, including build server integrity, dependency verification, and signed artifacts."
         }
+      },
+      {
+        "vulnerability": "SQL Injection in MOVEit Transfer",
+        "impact": "Data theft from over 2,700 organizations, including government agencies, affecting more than 90 million individuals.",
+        "lesson": "Third-party software is part of your attack surface. A single zero-day vulnerability in a widely used tool can have catastrophic consequences.",
+        "modalContent": {
+          "paragraph": "In 2023, a critical SQL injection vulnerability was discovered in the MOVEit Transfer software, a popular tool for secure file transfers. The Clop ransomware gang exploited this zero-day flaw to steal massive amounts of sensitive data from a wide range of organizations globally. The incident highlighted the significant risks associated with third-party software and the importance of having a rapid response plan for supply chain vulnerabilities."
+        }
+      },
+      {
+        "vulnerability": "Compromised developer credentials and cloud backups",
+        "impact": "Theft of encrypted customer password vaults and sensitive user data. All LastPass users were advised to change their master passwords.",
+        "lesson": "Defense-in-depth is critical. A single point of failure (like a developer's home computer) can lead to a cascade of security failures, and cloud security misconfigurations can be devastating.",
+        "modalContent": {
+          "paragraph": "The 2022 LastPass breach was a multi-stage attack that began with a compromise of a senior DevOps engineer's home computer. The attackers stole corporate vault credentials, which they then used to access cloud-based backup storage containing customer vault data. Although the vaults were encrypted, the attackers also obtained sensitive, unencrypted user information. The incident was a stark lesson in the importance of securing developer environments and implementing strict, multi-layered access controls for critical cloud infrastructure."
+        }
+      },
+      {
+        "vulnerability": "Stolen credentials for a support case management system",
+        "impact": "Attackers accessed and downloaded HAR files from support tickets, which contained sensitive session tokens, allowing them to impersonate legitimate users.",
+        "lesson": "An attack on a secondary system (like a support portal) can be a stepping stone to compromise the primary service. All systems, even non-production ones, require robust security.",
+        "modalContent": {
+          "paragraph": "In October 2023, identity and access management provider Okta disclosed a breach where attackers gained access to its support case management system using stolen credentials. They were able to view files uploaded by customers, including HAR files which contained session tokens. The attackers used these tokens to hijack user sessions, bypassing MFA and gaining unauthorized access to customer accounts. The breach emphasized that security must be holistic, as a weakness in one system can undermine the security of the entire platform."
+        }
       }
     ]
   },

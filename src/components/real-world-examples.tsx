@@ -65,6 +65,42 @@ export function RealWorldExamples() {
         imageHint: "cloud security"
       }
     },
+    {
+      id: "moveit",
+      title: "MOVEit Breach (2023)",
+      vulnerability: t('examples.3.vulnerability'),
+      impact: t('examples.3.impact'),
+      lesson: t('examples.3.lesson'),
+      modalContent: {
+        paragraph: t('examples.3.modalContent.paragraph'),
+        imageUrl: "https://picsum.photos/seed/data-transfer/600/400",
+        imageHint: "data transfer"
+      }
+    },
+    {
+      id: "lastpass",
+      title: "LastPass Breach (2022)",
+      vulnerability: t('examples.4.vulnerability'),
+      impact: t('examples.4.impact'),
+      lesson: t('examples.4.lesson'),
+      modalContent: {
+        paragraph: t('examples.4.modalContent.paragraph'),
+        imageUrl: "https://picsum.photos/seed/password-vault/600/400",
+        imageHint: "password vault"
+      }
+    },
+    {
+      id: "okta",
+      title: "Okta Breach (2023)",
+      vulnerability: t('examples.5.vulnerability'),
+      impact: t('examples.5.impact'),
+      lesson: t('examples.5.lesson'),
+      modalContent: {
+        paragraph: t('examples.5.modalContent.paragraph'),
+        imageUrl: "https://picsum.photos/seed/support-ticket/600/400",
+        imageHint: "support ticket"
+      }
+    }
   ];
 
   const activeModal = searchParams.get('modal');
@@ -136,3 +172,5 @@ export function RealWorldExamples() {
     </section>
   );
 }
+
+    

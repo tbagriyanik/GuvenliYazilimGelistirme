@@ -197,6 +197,30 @@
         "modalContent": {
           "paragraph": "SolarWinds saldırısı, derleme sürecinde Orion yazılımına kötü amaçlı kodun enjekte edildiği karmaşık bir tedarik zinciri saldırısıydı. Bu Truva atı içeren güncelleme daha sonra imzalandı ve müşterilere dağıtıldı. Binlerce yüksek değerli ağa sızmak için saldırganlara bir arka kapı oluşturdu. Bu ihlal, derleme sunucusu bütünlüğü, bağımlılık doğrulaması ve imzalı yapılar da dahil olmak üzere CI/CD ardışık düzeninde uçtan uca güvenliğin gerekliliğini vurguladı."
         }
+      },
+      {
+        "vulnerability": "MOVEit Transfer'de SQL Injection",
+        "impact": "Devlet kurumları dahil 2.700'den fazla kuruluştan veri hırsızlığı, 90 milyondan fazla kişiyi etkiledi.",
+        "lesson": "Üçüncü parti yazılımlar saldırı yüzeyinizin bir parçasıdır. Yaygın kullanılan bir araçtaki tek bir sıfır gün zafiyeti feci sonuçlara yol açabilir.",
+        "modalContent": {
+          "paragraph": "2023'te, popüler bir güvenli dosya transfer aracı olan MOVEit Transfer yazılımında kritik bir SQL enjeksiyonu zafiyeti keşfedildi. Clop fidye yazılımı çetesi, bu sıfır gün zafiyetini kullanarak dünya çapında çok çeşitli kuruluşlardan büyük miktarda hassas veriyi çaldı. Olay, üçüncü parti yazılımlarla ilişkili önemli riskleri ve tedarik zinciri zafiyetleri için hızlı bir müdahale planına sahip olmanın önemini vurguladı."
+        }
+      },
+      {
+        "vulnerability": "Ele geçirilmiş geliştirici kimlik bilgileri ve bulut yedekleri",
+        "impact": "Şifrelenmiş müşteri parola kasalarının ve hassas kullanıcı verilerinin çalınması. Tüm LastPass kullanıcılarına ana parolalarını değiştirmeleri tavsiye edildi.",
+        "lesson": "Derinlemesine savunma kritiktir. Tek bir başarısızlık noktası (bir geliştiricinin ev bilgisayarı gibi) bir dizi güvenlik başarısızlığına yol açabilir ve bulut güvenliği yanlış yapılandırmaları yıkıcı olabilir.",
+        "modalContent": {
+          "paragraph": "2022 LastPass ihlali, üst düzey bir DevOps mühendisinin ev bilgisayarının ele geçirilmesiyle başlayan çok aşamalı bir saldırıydı. Saldırganlar, daha sonra müşteri kasa verilerini içeren bulut tabanlı yedekleme depolama alanına erişmek için kullandıkları kurumsal kasa kimlik bilgilerini çaldılar. Kasalar şifrelenmiş olsa da, saldırganlar hassas, şifrelenmemiş kullanıcı bilgilerini de elde etti. Olay, geliştirici ortamlarını güvence altına almanın ve kritik bulut altyapısı için katı, çok katmanlı erişim kontrolleri uygulamanın önemi konusunda sert bir ders oldu."
+        }
+      },
+      {
+        "vulnerability": "Destek vaka yönetim sistemi için çalınan kimlik bilgileri",
+        "impact": "Saldırganlar, meşru kullanıcıları taklit etmelerine olanak tanıyan hassas oturum token'ları içeren HAR dosyalarını destek biletlerinden erişip indirdi.",
+        "lesson": "İkincil bir sisteme (destek portalı gibi) yapılan bir saldırı, birincil hizmeti ele geçirmek için bir basamak olabilir. Üretim dışı olanlar da dahil olmak üzere tüm sistemler sağlam güvenlik gerektirir.",
+        "modalContent": {
+          "paragraph": "Ekim 2023'te, kimlik ve erişim yönetimi sağlayıcısı Okta, saldırganların çalınan kimlik bilgilerini kullanarak destek vaka yönetim sistemine erişim sağladığı bir ihlal açıkladı. Müşteriler tarafından yüklenen dosyaları, oturum token'ları içeren HAR dosyaları da dahil olmak üzere görüntüleyebildiler. Saldırganlar bu token'ları kullanıcı oturumlarını kaçırmak, MFA'yı atlamak ve müşteri hesaplarına yetkisiz erişim sağlamak için kullandılar. İhlal, bir sistemdeki bir zayıflığın tüm platformun güvenliğini baltalayabileceğinden, güvenliğin bütünsel olması gerektiğini vurguladı."
+        }
       }
     ]
   },
