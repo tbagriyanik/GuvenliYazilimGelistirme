@@ -279,7 +279,7 @@
     ]
   },
   "Footer": {
-    "copyright": "This project is open source."
+    "copyright": "Secure Application Development. This project is open source."
   },
   "CopyButton": {
     "copy": "Copy to clipboard",
@@ -289,3 +289,5 @@
     "select": "Select language"
   }
 }
+
+    
