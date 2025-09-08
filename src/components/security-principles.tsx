@@ -92,7 +92,7 @@ export function SecurityPrinciples() {
                       </ul>
                     </CardContent>
                     <CardFooter className="w-full">
-                       <Button variant="outline" className="w-full" tabIndex={-1}>
+                       <Button variant="outline" className="w-full pointer-events-none" tabIndex={-1}>
                            {t('learnMore')} <ArrowRight className="ml-2 h-4 w-4" />
                        </Button>
                     </CardFooter>
@@ -125,3 +125,5 @@ export function SecurityPrinciples() {
     </section>
   );
 }
+
+    
