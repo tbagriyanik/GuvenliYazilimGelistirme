@@ -170,47 +170,110 @@
       {
         "title": "Input & Data Validation",
         "items": [
-          "Sanitize all user inputs on the server-side.",
-          "Use parameterized queries to prevent SQL injection.",
-          "Validate data type, length, format, and range.",
-          "Encode output to prevent Cross-Site Scripting (XSS)."
+          {
+            "text": "Sanitize all user inputs on the server-side.",
+            "description": "Always clean data on the backend, even if you have client-side validation."
+          },
+          {
+            "text": "Use parameterized queries to prevent SQL injection.",
+            "description": "Never concatenate user input directly into database queries."
+          },
+          {
+            "text": "Validate data type, length, format, and range.",
+            "description": "Ensure incoming data conforms to expected patterns before processing."
+          },
+          {
+            "text": "Encode output to prevent Cross-Site Scripting (XSS).",
+            "description": "Convert special characters to HTML entities before rendering user-provided content."
+          }
         ]
       },
       {
         "title": "Authentication & Session Management",
         "items": [
-          "Enforce strong password policies.",
-          "Implement multi-factor authentication (MFA).",
-          "Generate new session IDs upon login.",
-          "Securely store password hashes (e.g., using bcrypt).",
-          "Implement secure password recovery mechanisms."
+          {
+            "text": "Enforce strong password policies.",
+            "description": "Require a mix of character types, minimum length, and avoid common passwords."
+          },
+          {
+            "text": "Implement multi-factor authentication (MFA).",
+            "description": "Add a second layer of security beyond just a password."
+          },
+          {
+            "text": "Generate new session IDs upon login.",
+            "description": "Helps prevent session fixation attacks."
+          },
+          {
+            "text": "Securely store password hashes (e.g., using bcrypt).",
+            "description": "Never store passwords in plain text; always use a strong, salted hashing algorithm."
+          },
+          {
+            "text": "Implement secure password recovery mechanisms.",
+            "description": "Ensure the process doesn't leak information and is resistant to brute-force."
+          }
         ]
       },
       {
         "title": "Access Control",
         "items": [
-          "Enforce the Principle of Least Privilege.",
-          "Implement role-based access control (RBAC).",
-          "Deny access by default.",
-          "Validate user permissions on every sensitive request."
+          {
+            "text": "Enforce the Principle of Least Privilege.",
+            "description": "Give accounts and processes only the permissions they absolutely need."
+          },
+          {
+            "text": "Implement role-based access control (RBAC).",
+            "description": "Manage permissions through roles rather than assigning them to individual users."
+          },
+          {
+            "text": "Deny access by default.",
+            "description": "Only grant access explicitly; the default state should be no access."
+          },
+          {
+            "text": "Validate user permissions on every sensitive request.",
+            "description": "Don't assume a user who accessed one resource is allowed to access another."
+          }
         ]
       },
       {
         "title": "Cryptography & Data Protection",
         "items": [
-          "Use TLS/SSL for all data in transit.",
-          "Encrypt sensitive data at rest.",
-          "Do not store sensitive data unless absolutely necessary.",
-          "Use strong, industry-standard cryptographic algorithms."
+          {
+            "text": "Use TLS/SSL for all data in transit.",
+            "description": "Encrypt all communication between the client and server."
+          },
+          {
+            "text": "Encrypt sensitive data at rest.",
+            "description": "Protect data stored in databases, filesystems, or backups."
+          },
+          {
+            "text": "Do not store sensitive data unless absolutely necessary.",
+            "description": "The best way to protect data is not to have it in the first place."
+          },
+          {
+            "text": "Use strong, industry-standard cryptographic algorithms.",
+            "description": "Avoid custom or deprecated algorithms like MD5 or SHA1."
+          }
         ]
       },
       {
         "title": "Advanced & DevOps",
         "items": [
-          "Implement Content Security Policy (CSP) headers.",
-          "Use dependency scanning tools for vulnerabilities.",
-          "Perform regular security code reviews.",
-          "Integrate static (SAST) and dynamic (DAST) analysis into CI/CD pipeline."
+          {
+            "text": "Implement Content Security Policy (CSP) headers.",
+            "description": "Control which resources (scripts, styles) are allowed to load on your pages."
+          },
+          {
+            "text": "Use dependency scanning tools for vulnerabilities.",
+            "description": "Automatically check your third-party libraries for known security issues."
+          },
+          {
+            "text": "Perform regular security code reviews.",
+            "description": "Have another set of eyes look for potential security flaws in your code."
+          },
+          {
+            "text": "Integrate static (SAST) and dynamic (DAST) analysis into CI/CD pipeline.",
+            "description": "Automate security testing as part of your build and deployment process."
+          }
         ]
       }
     ]

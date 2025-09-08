@@ -170,47 +170,110 @@
       {
         "title": "Giriş ve Veri Doğrulaması",
         "items": [
-          "Tüm kullanıcı girdilerini sunucu tarafında temizleyin.",
-          "SQL enjeksiyonunu önlemek için parametreli sorgular kullanın.",
-          "Veri türünü, uzunluğunu, biçimini ve aralığını doğrulayın.",
-          "Siteler Arası Komut Dosyası Çalıştırmayı (XSS) önlemek için çıktıyı kodlayın."
+          {
+            "text": "Tüm kullanıcı girdilerini sunucu tarafında temizleyin.",
+            "description": "İstemci tarafında doğrulamanız olsa bile verileri her zaman arka uçta temizleyin."
+          },
+          {
+            "text": "SQL enjeksiyonunu önlemek için parametreli sorgular kullanın.",
+            "description": "Kullanıcı girdisini asla doğrudan veritabanı sorgularına birleştirmeyin."
+          },
+          {
+            "text": "Veri türünü, uzunluğunu, biçimini ve aralığını doğrulayın.",
+            "description": "Gelen verilerin işlenmeden önce beklenen kalıplara uygun olduğundan emin olun."
+          },
+          {
+            "text": "Siteler Arası Komut Dosyası Çalıştırmayı (XSS) önlemek için çıktıyı kodlayın.",
+            "description": "Kullanıcı tarafından sağlanan içeriği oluşturmadan önce özel karakterleri HTML varlıklarına dönüştürün."
+          }
         ]
       },
       {
         "title": "Kimlik Doğrulama ve Oturum Yönetimi",
         "items": [
-          "Güçlü parola politikaları uygulayın.",
-          "Çok faktörlü kimlik doğrulama (MFA) uygulayın.",
-          "Giriş yapıldığında yeni oturum kimlikleri oluşturun.",
-          "Parola karmalarını güvenli bir şekilde saklayın (örneğin, bcrypt kullanarak).",
-          "Güvenli parola kurtarma mekanizmaları uygulayın."
+          {
+            "text": "Güçlü parola politikaları uygulayın.",
+            "description": "Karakter türlerinin bir karışımını, minimum uzunluğu zorunlu kılın ve yaygın parolalardan kaçının."
+          },
+          {
+            "text": "Çok faktörlü kimlik doğrulama (MFA) uygulayın.",
+            "description": "Sadece bir parolanın ötesinde ikinci bir güvenlik katmanı ekleyin."
+          },
+          {
+            "text": "Giriş yapıldığında yeni oturum kimlikleri oluşturun.",
+            "description": "Oturum sabitleme saldırılarını önlemeye yardımcı olur."
+          },
+          {
+            "text": "Parola karmalarını güvenli bir şekilde saklayın (örneğin, bcrypt kullanarak).",
+            "description": "Parolaları asla düz metin olarak saklamayın; her zaman güçlü, tuzlanmış bir karma algoritması kullanın."
+          },
+          {
+            "text": "Güvenli parola kurtarma mekanizmaları uygulayın.",
+            "description": "Sürecin bilgi sızdırmadığından ve kaba kuvvet saldırılarına karşı dirençli olduğundan emin olun."
+          }
         ]
       },
       {
         "title": "Erişim Kontrolü",
         "items": [
-          "En Az Ayrıcalık İlkesini uygulayın.",
-          "Rol tabanlı erişim kontrolü (RBAC) uygulayın.",
-          "Varsayılan olarak erişimi reddedin.",
-          "Her hassas istekte kullanıcı izinlerini doğrulayın."
+          {
+            "text": "En Az Ayrıcalık İlkesini uygulayın.",
+            "description": "Hesaplara ve süreçlere yalnızca kesinlikle ihtiyaç duydukları izinleri verin."
+          },
+          {
+            "text": "Rol tabanlı erişim kontrolü (RBAC) uygulayın.",
+            "description": "İzinleri bireysel kullanıcılara atamak yerine roller aracılığıyla yönetin."
+          },
+          {
+            "text": "Varsayılan olarak erişimi reddedin.",
+            "description": "Yalnızca açıkça erişim izni verin; varsayılan durum erişim olmamalıdır."
+          },
+          {
+            "text": "Her hassas istekte kullanıcı izinlerini doğrulayın.",
+            "description": "Bir kaynağa erişen bir kullanıcının diğerine erişmesine izin verildiğini varsaymayın."
+          }
         ]
       },
       {
         "title": "Kriptografi ve Veri Koruma",
         "items": [
-          "Aktarım halindeki tüm veriler için TLS/SSL kullanın.",
-          "Durağan haldeki hassas verileri şifreleyin.",
-          "Kesinlikle gerekli olmadıkça hassas verileri saklamayın.",
-          "Güçlü, endüstri standardı kriptografik algoritmalar kullanın."
+          {
+            "text": "Aktarım halindeki tüm veriler için TLS/SSL kullanın.",
+            "description": "İstemci ve sunucu arasındaki tüm iletişimi şifreleyin."
+          },
+          {
+            "text": "Durağan haldeki hassas verileri şifreleyin.",
+            "description": "Veritabanlarında, dosya sistemlerinde veya yedeklerde saklanan verileri koruyun."
+          },
+          {
+            "text": "Kesinlikle gerekli olmadıkça hassas verileri saklamayın.",
+            "description": "Verileri korumanın en iyi yolu, onlara sahip olmamaktır."
+          },
+          {
+            "text": "Güçlü, endüstri standardı kriptografik algoritmalar kullanın.",
+            "description": "MD5 veya SHA1 gibi özel veya kullanımdan kaldırılmış algoritmalardan kaçının."
+          }
         ]
       },
       {
         "title": "Gelişmiş & DevOps",
         "items": [
-          "İçerik Güvenliği Politikası (CSP) başlıklarını uygulayın.",
-          "Güvenlik açıkları için bağımlılık tarama araçları kullanın.",
-          "Düzenli olarak güvenlik kodu incelemeleri yapın.",
-          "Statik (SAST) ve dinamik (DAST) analizi CI/CD boru hattına entegre edin."
+          {
+            "text": "İçerik Güvenliği Politikası (CSP) başlıklarını uygulayın.",
+            "description": "Sayfalarınızda hangi kaynakların (betikler, stiller) yüklenmesine izin verildiğini kontrol edin."
+          },
+          {
+            "text": "Güvenlik açıkları için bağımlılık tarama araçları kullanın.",
+            "description": "Üçüncü taraf kütüphanelerinizi bilinen güvenlik sorunları için otomatik olarak kontrol edin."
+          },
+          {
+            "text": "Düzenli olarak güvenlik kodu incelemeleri yapın.",
+            "description": "Kodunuzdaki potansiyel güvenlik kusurlarını araması için başka bir gözden geçirin."
+          },
+          {
+            "text": "Statik (SAST) ve dinamik (DAST) analizi CI/CD boru hattına entegre edin.",
+            "description": "Derleme ve dağıtım sürecinizin bir parçası olarak güvenlik testini otomatikleştirin."
+          }
         ]
       }
     ]
