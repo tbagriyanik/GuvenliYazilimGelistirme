@@ -237,7 +237,7 @@
         "impact": "Şifrelenmiş müşteri parola kasalarının çalınması. Tüm LastPass kullanıcılarına ana parolalarını değiştirmeleri tavsiye edildi.",
         "lesson": "Derinlemesine savunma kritiktir. Tek bir zayıf nokta (geliştiricinin ev bilgisayarı gibi) bir dizi güvenlik başarısızlığına yol açabilir.",
         "modalContent": {
-          "paragraph": "2022'deki LastPass ihlali, bir DevOps mühendisinin ev bilgisayarının ele geçirilmesiyle başlayan çok aşamalı bir saldırıydı. Saldırganlar, daha sonra müşteri kasa verilerini içeren bulut tabanlı yedek depolama alanına erişmek için kullandıkları kurumsal kasa kimlik bilgilerini çaldılar. Olay, geliştirici ortamlarını güvence altına almanın ve kritik bulut altyapısı için katı, çok katmanlı erişim kontrolleri uygulamanın önemini gösteren sert bir ders oldu.",
+          "paragraph": "2022'deki LastPass ihlali, bir DevOps mühendisinin ev bilgisayarının ele geçirilmesiyle başlayan çok aşamalı bir saldırıydı. Saldırganlar, daha sonra müşteri kasa verilerini içeren bulut tabanlı yedek depolama alanına erişmek için kullandıkları kurumsal kasa kimlik bilgilerini çaldılar. Olay, geliştirici ortamlarını güvence altına almanın ve kritik bulut altapısı için katı, çok katmanlı erişim kontrolleri uygulamanın önemini gösteren sert bir ders oldu.",
           "imageUrl": "https://picsum.photos/seed/password-vault/600/400",
           "imageHint": "parola kasası"
         }
