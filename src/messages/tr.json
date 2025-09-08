@@ -200,26 +200,26 @@
       },
       {
         "vulnerability": "MOVEit Transfer'de SQL Enjeksiyonu",
-        "impact": "Devlet kurumları dahil 2.700'den fazla kuruluştan veri hırsızlığı, 90 milyondan fazla kişiyi etkiledi.",
-        "lesson": "Üçüncü parti yazılımlar saldırı yüzeyinizin bir parçasıdır. Yaygın kullanılan bir araçtaki tek bir sıfır gün zafiyeti feci sonuçlara yol açabilir.",
+        "impact": "2.700'den fazla kuruluştan veri hırsızlığı, 90 milyondan fazla kişiyi etkiledi.",
+        "lesson": "Üçüncü parti yazılımlar saldırı yüzeyinizin bir parçasıdır ve düzenli olarak denetlenmelidir.",
         "modalContent": {
-          "paragraph": "2023'te, popüler bir güvenli dosya transfer aracı olan MOVEit Transfer yazılımında kritik bir SQL enjeksiyonu zafiyeti keşfedildi. Clop fidye yazılımı çetesi, bu sıfır gün zafiyetini kullanarak dünya çapında çok çeşitli kuruluşlardan büyük miktarda hassas veriyi çaldı. Olay, üçüncü parti yazılımlarla ilişkili önemli riskleri ve tedarik zinciri zafiyetleri için hızlı bir müdahale planına sahip olmanın önemini vurguladı."
+          "paragraph": "2023'te, popüler bir dosya transfer aracı olan MOVEit Transfer yazılımında kritik bir SQL enjeksiyonu zafiyeti keşfedildi. Bir fidye yazılımı çetesi, bu sıfır gün zafiyetini kullanarak dünya çapında binlerce kuruluştan büyük miktarda hassas veri çaldı. Olay, üçüncü parti yazılımlarla ilişkili önemli riskleri ve tedarik zinciri zafiyetleri için hızlı bir müdahale planına sahip olmanın önemini vurguladı."
         }
       },
       {
-        "vulnerability": "Ele geçirilmiş geliştirici kimlik bilgileri ve bulut yedekleri",
-        "impact": "Şifrelenmiş müşteri parola kasalarının ve hassas kullanıcı verilerinin çalınması. Tüm LastPass kullanıcılarına ana parolalarını değiştirmeleri tavsiye edildi.",
-        "lesson": "Derinlemesine savunma kritiktir. Tek bir başarısızlık noktası (bir geliştiricinin ev bilgisayarı gibi) bir dizi güvenlik başarısızlığına yol açabilir ve bulut güvenliği yanlış yapılandırmaları yıkıcı olabilir.",
+        "vulnerability": "Ele geçirilmiş geliştirici kimlik bilgileri",
+        "impact": "Şifrelenmiş müşteri parola kasalarının çalınması, tüm kullanıcıların ana parolalarını değiştirmesi gerekti.",
+        "lesson": "Derinlemesine savunma (Defense-in-depth) kritiktir. Tek bir zayıf nokta (örneğin bir geliştiricinin bilgisayarı) bir dizi güvenlik başarısızlığına yol açabilir.",
         "modalContent": {
-          "paragraph": "2022 LastPass ihlali, üst düzey bir DevOps mühendisinin ev bilgisayarının ele geçirilmesiyle başlayan çok aşamalı bir saldırıydı. Saldırganlar, daha sonra müşteri kasa verilerini içeren bulut tabanlı yedekleme depolama alanına erişmek için kullandıkları kurumsal kasa kimlik bilgilerini çaldılar. Kasalar şifrelenmiş olsa da, saldırganlar hassas, şifrelenmemiş kullanıcı bilgilerini de elde etti. Olay, geliştirici ortamlarını güvence altına almanın ve kritik bulut altyapısı için katı, çok katmanlı erişim kontrolleri uygulamanın önemi konusunda sert bir ders oldu."
+          "paragraph": "2022'deki LastPass ihlali, bir DevOps mühendisinin ev bilgisayarının ele geçirilmesiyle başlayan çok aşamalı bir saldırıydı. Saldırganlar, daha sonra müşteri kasa verilerini içeren bulut tabanlı yedek depolama alanına erişmek için kullandıkları kurumsal kimlik bilgilerini çaldılar. Olay, geliştirici ortamlarını güvence altına almanın ve kritik altyapı için katı, çok katmanlı erişim kontrolleri uygulamanın önemini gösteren sert bir ders oldu."
         }
       },
       {
-        "vulnerability": "Destek vaka yönetim sistemi için çalınan kimlik bilgileri",
-        "impact": "Saldırganlar, meşru kullanıcıları taklit etmelerine olanak tanıyan hassas oturum token'ları içeren HAR dosyalarını destek biletlerinden erişip indirdi.",
-        "lesson": "İkincil bir sisteme (destek portalı gibi) yapılan bir saldırı, birincil hizmeti ele geçirmek için bir basamak olabilir. Tüm sistemler, üretim dışı olanlar da dahil olmak üzere sağlam güvenlik gerektirir.",
+        "vulnerability": "Destek sistemi için çalınan kimlik bilgileri",
+        "impact": "Saldırganlar, hassas oturum token'ları içeren destek dosyalarına erişerek kullanıcıları taklit etti.",
+        "lesson": "İkincil bir sisteme (destek portalı gibi) yapılan saldırı, birincil hizmeti tehlikeye atmak için bir basamak olabilir. Tüm sistemler sağlam güvenlik gerektirir.",
         "modalContent": {
-          "paragraph": "Ekim 2023'te, kimlik ve erişim yönetimi sağlayıcısı Okta, saldırganların çalınan kimlik bilgilerini kullanarak destek vaka yönetim sistemine erişim sağladığı bir ihlal açıkladı. Müşteriler tarafından yüklenen dosyaları, oturum token'ları içeren HAR dosyaları da dahil olmak üzere görüntüleyebildiler. Saldırganlar bu token'ları kullanıcı oturumlarını kaçırmak, MFA'yı atlamak ve müşteri hesaplarına yetkisiz erişim sağlamak için kullandılar. İhlal, bir sistemdeki bir zayıflığın tüm platformun güvenliğini baltalayabileceğinden, güvenliğin bütünsel olması gerektiğini vurguladı."
+          "paragraph": "Ekim 2023'te, kimlik yönetimi sağlayıcısı Okta, saldırganların çalınan kimlik bilgilerini kullanarak destek vaka sistemine eriştiği bir ihlal açıkladı. Müşteriler tarafından yüklenen ve oturum token'ları içeren HAR dosyalarını görüntüleyebildiler. Saldırganlar bu token'ları kullanıcı oturumlarını ele geçirmek ve müşteri hesaplarına yetkisiz erişim sağlamak için kullandılar. İhlal, bir sistemdeki bir zayıflığın tüm platformun güvenliğini baltalayabileceğinden, güvenliğin bütünsel olması gerektiğini vurguladı."
         }
       }
     ]
