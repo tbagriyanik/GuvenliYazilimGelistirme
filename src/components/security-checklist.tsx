@@ -75,7 +75,7 @@ export function SecurityChecklist() {
           <Accordion type="multiple" className="w-full">
             {checklistCategories.map((category, index) => (
               <AccordionItem value={`item-${index}`} key={category.title}>
-                <AccordionTrigger className="text-lg font-semibold hover:no-underline">{category.title}</AccordionTrigger>
+                <AccordionTrigger className="text-lg font-semibold hover:no-underline justify-center">{category.title}</AccordionTrigger>
                 <AccordionContent>
                   <div className="space-y-4 pt-2">
                     {category.items.map((item, itemIndex) => (
