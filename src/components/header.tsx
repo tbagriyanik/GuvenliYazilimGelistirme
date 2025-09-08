@@ -13,6 +13,7 @@ import {
 import { Menu } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from './language-switcher';
+import { ThemeSwitcher } from './theme-switcher';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,16 +45,18 @@ export function Header() {
           <Shield className="h-7 w-7" />
           <span>{t('brand')}</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-2">
           {navItems.map((item) => (
-            <Link key={item.name} href={item.href} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+            <Link key={item.name} href={item.href} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors px-4">
               {item.name}
             </Link>
           ))}
            <LanguageSwitcher />
+           <ThemeSwitcher />
         </nav>
         <div className="md:hidden flex items-center gap-2">
           <LanguageSwitcher />
+          <ThemeSwitcher />
            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
