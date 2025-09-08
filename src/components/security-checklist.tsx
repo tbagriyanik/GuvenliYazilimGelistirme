@@ -1,3 +1,4 @@
+
 "use client";
 
 import {
@@ -24,28 +25,8 @@ type ChecklistCategory = {
 export function SecurityChecklist() {
   const t = useTranslations('SecurityChecklist');
 
-  const checklistCategories: ChecklistCategory[] = [
-    {
-      title: t('categories.0.title'),
-      items: t.raw('categories.0.items'),
-    },
-    {
-      title: t('categories.1.title'),
-      items: t.raw('categories.1.items'),
-    },
-    {
-      title: t('categories.2.title'),
-      items: t.raw('categories.2.items'),
-    },
-    {
-      title: t('categories.3.title'),
-      items: t.raw('categories.3.items'),
-    },
-    {
-      title: t('categories.4.title'),
-      items: t.raw('categories.4.items'),
-    }
-  ];
+  // Load the entire array of categories directly from the translation file.
+  const checklistCategories: ChecklistCategory[] = t.raw('categories');
   
   return (
     <section id="checklist" className="py-16 md:py-24 bg-muted/20">

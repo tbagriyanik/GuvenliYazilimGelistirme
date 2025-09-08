@@ -12,6 +12,20 @@ import { useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 import { cn } from "@/lib/utils";
 
+// Define a type for the example objects to ensure type safety
+type RealWorldExample = {
+  id: string;
+  title: string;
+  vulnerability: string;
+  impact: string;
+  lesson: string;
+  modalContent: {
+    paragraph: string;
+    imageUrl: string;
+    imageHint: string;
+  };
+};
+
 export function RealWorldExamples() {
   const t = useTranslations('RealWorldExamples');
   const router = useRouter();
@@ -28,80 +42,8 @@ export function RealWorldExamples() {
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
   }, [pathname, router, searchParams]);
   
-  const examples = [
-    {
-      id: "heartbleed",
-      title: "Heartbleed (OpenSSL)",
-      vulnerability: t('examples.0.vulnerability'),
-      impact: t('examples.0.impact'),
-      lesson: t('examples.0.lesson'),
-      modalContent: {
-        paragraph: t('examples.0.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/servers/600/400",
-        imageHint: "server room"
-      }
-    },
-    {
-      id: "log4shell",
-      title: "Log4Shell (Log4j)",
-      vulnerability: t('examples.1.vulnerability'),
-      impact: t('examples.1.impact'),
-      lesson: t('examples.1.lesson'),
-      modalContent: {
-        paragraph: t('examples.1.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/supplychain/600/400",
-        imageHint: "software supply chain"
-      }
-    },
-    {
-      id: "solarwinds",
-      title: "SolarWinds Attack",
-      vulnerability: t('examples.2.vulnerability'),
-      impact: t('examples.2.impact'),
-      lesson: t('examples.2.lesson'),
-      modalContent: {
-        paragraph: t('examples.2.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/cloud/600/400",
-        imageHint: "cloud security"
-      }
-    },
-    {
-      id: "moveit",
-      title: "MOVEit Breach (2023)",
-      vulnerability: t('examples.3.vulnerability'),
-      impact: t('examples.3.impact'),
-      lesson: t('examples.3.lesson'),
-      modalContent: {
-        paragraph: t('examples.3.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/data-transfer/600/400",
-        imageHint: "data transfer"
-      }
-    },
-    {
-      id: "lastpass",
-      title: "LastPass Breach (2022)",
-      vulnerability: t('examples.4.vulnerability'),
-      impact: t('examples.4.impact'),
-      lesson: t('examples.4.lesson'),
-      modalContent: {
-        paragraph: t('examples.4.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/password-vault/600/400",
-        imageHint: "password vault"
-      }
-    },
-    {
-      id: "okta",
-      title: "Okta Breach (2023)",
-      vulnerability: t('examples.5.vulnerability'),
-      impact: t('examples.5.impact'),
-      lesson: t('examples.5.lesson'),
-      modalContent: {
-        paragraph: t('examples.5.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/support-ticket/600/400",
-        imageHint: "support ticket"
-      }
-    }
-  ];
+  // Use t.raw to get the entire array of examples from the JSON file
+  const examples: RealWorldExample[] = t.raw('examples');
 
   const activeModal = searchParams.get('modal');
 
