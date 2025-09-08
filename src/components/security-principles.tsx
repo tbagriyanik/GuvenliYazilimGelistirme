@@ -3,7 +3,7 @@
 
 import Image from 'next/image';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { Button } from './ui/button';
 import { ShieldCheck, Lock, UserMinus, ShieldAlert, KeyRound, FileLock, Cog, Monitor, type LucideIcon, ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -91,9 +91,11 @@ export function SecurityPrinciples() {
                     </ul>
                   </CardContent>
                   <CardFooter className="w-full">
-                    <Button variant="outline" className="w-full" onClick={() => handleOpenChange(true, p.id)}>
-                        {t('learnMore')} <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
+                     <DialogTrigger asChild>
+                        <Button variant="outline" className="w-full">
+                            {t('learnMore')} <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                     </DialogTrigger>
                   </CardFooter>
                 </Card>
                 <DialogContent className={cn("sm:max-w-[625px]", "glass-card")}>
