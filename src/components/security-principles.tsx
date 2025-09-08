@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -64,15 +65,15 @@ export function SecurityPrinciples() {
       }
     },
     {
-      id: "crypto",
+      id: "authorization",
       title: t('principles.2.title'),
       description: t('principles.2.description'),
-      Icon: KeyRound,
+      Icon: UserMinus,
       details: t.raw('principles.2.details'),
        modalContent: {
         paragraph: t('principles.2.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/encryption/600/400",
-        imageHint: "digital encryption"
+        imageUrl: "https://picsum.photos/seed/access/600/400",
+        imageHint: "access control"
       }
     },
     {
@@ -88,39 +89,39 @@ export function SecurityPrinciples() {
       }
     },
     {
-      id: "data-protection",
+      id: "session-management",
       title: t('principles.4.title'),
       description: t('principles.4.description'),
-      Icon: DatabaseZap,
+      Icon: Settings,
       details: t.raw('principles.4.details'),
       modalContent: {
         paragraph: t('principles.4.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/database/600/400",
-        imageHint: "database server"
-      }
-    },
-    {
-      id: "secure-config",
-      title: t('principles.5.title'),
-      description: t('principles.5.description'),
-      Icon: Settings,
-      details: t.raw('principles.5.details'),
-      modalContent: {
-        paragraph: t('principles.5.modalContent.paragraph'),
         imageUrl: "https://picsum.photos/seed/network/600/400",
         imageHint: "network settings"
       }
     },
     {
-      id: "least-privilege",
+      id: "crypto",
+      title: t('principles.5.title'),
+      description: t('principles.5.description'),
+      Icon: KeyRound,
+      details: t.raw('principles.5.details'),
+      modalContent: {
+        paragraph: t('principles.5.modalContent.paragraph'),
+        imageUrl: "https://picsum.photos/seed/encryption/600/400",
+        imageHint: "digital encryption"
+      }
+    },
+    {
+      id: "devsecops",
       title: t('principles.6.title'),
       description: t('principles.6.description'),
-      Icon: UserMinus,
+      Icon: DatabaseZap,
       details: t.raw('principles.6.details'),
       modalContent: {
         paragraph: t('principles.6.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/access/600/400",
-        imageHint: "access control"
+        imageUrl: "https://picsum.photos/seed/database/600/400",
+        imageHint: "database server"
       }
     },
   ];
@@ -131,7 +132,7 @@ export function SecurityPrinciples() {
     <section id="principles" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-headline">{t('title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-headline">{t('title')}</h2>
           <p className="mt-4 text-muted-foreground">
             {t('subtitle')}
           </p>
@@ -165,7 +166,7 @@ export function SecurityPrinciples() {
               </Card>
               <DialogContent className={cn("sm:max-w-[625px]", "glass-card")}>
                 <DialogHeader>
-                  <DialogTitle className="text-2xl">{p.title}</DialogTitle>
+                  <DialogTitle>{p.title}</DialogTitle>
                 </DialogHeader>
                 <div className="py-4 space-y-4">
                    <div className="w-full aspect-video rounded-lg overflow-hidden relative">

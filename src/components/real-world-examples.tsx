@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card";
@@ -29,8 +30,8 @@ export function RealWorldExamples() {
   
   const examples = [
     {
-      id: "equifax",
-      title: "Equifax Data Breach (2017)",
+      id: "heartbleed",
+      title: "Heartbleed (OpenSSL)",
       vulnerability: t('examples.0.vulnerability'),
       impact: t('examples.0.impact'),
       lesson: t('examples.0.lesson'),
@@ -41,8 +42,8 @@ export function RealWorldExamples() {
       }
     },
     {
-      id: "solarwinds",
-      title: "SolarWinds Supply Chain Attack (2020)",
+      id: "log4shell",
+      title: "Log4Shell (Log4j)",
       vulnerability: t('examples.1.vulnerability'),
       impact: t('examples.1.impact'),
       lesson: t('examples.1.lesson'),
@@ -53,8 +54,8 @@ export function RealWorldExamples() {
       }
     },
     {
-      id: "capitalone",
-      title: "Capital One Data Breach (2019)",
+      id: "solarwinds",
+      title: "SolarWinds Attack",
       vulnerability: t('examples.2.vulnerability'),
       impact: t('examples.2.impact'),
       lesson: t('examples.2.lesson'),
@@ -69,10 +70,10 @@ export function RealWorldExamples() {
   const activeModal = searchParams.get('modal');
 
   return (
-    <section id="examples" className="py-16 md:py-24">
+    <section id="examples" className="py-16 md:py-24 bg-muted/20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-headline">{t('title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-headline">{t('title')}</h2>
           <p className="mt-4 text-muted-foreground">
             {t('subtitle')}
           </p>
@@ -111,7 +112,7 @@ export function RealWorldExamples() {
               </Card>
               <DialogContent className={cn("sm:max-w-[625px]", "glass-card")}>
                 <DialogHeader>
-                  <DialogTitle className="text-2xl">{ex.title}</DialogTitle>
+                  <DialogTitle>{ex.title}</DialogTitle>
                 </DialogHeader>
                 <div className="py-4 space-y-4">
                    <div className="w-full aspect-video rounded-lg overflow-hidden relative">
