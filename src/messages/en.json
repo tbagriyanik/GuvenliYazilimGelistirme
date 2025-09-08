@@ -175,51 +175,75 @@
     "readMore": "Read More",
     "examples": [
       {
+        "id": "heartbleed",
+        "title": "Heartbleed (OpenSSL, 2014)",
         "vulnerability": "Memory leakage in OpenSSL (Heartbleed)",
         "impact": "Exposed sensitive data from server memory, including private keys and user credentials.",
         "lesson": "Even foundational libraries can have critical flaws. Keep all system components and libraries patched and up-to-date.",
         "modalContent": {
-          "paragraph": "The Heartbleed bug was a severe vulnerability in the OpenSSL cryptographic library. It allowed attackers to read the memory of servers, exposing sensitive information like session tokens, passwords, and the server's private keys. The incident served as a powerful reminder that security depends on every component of the stack, and that keeping dependencies updated is non-negotiable for maintaining a secure posture."
+          "paragraph": "The Heartbleed bug was a severe vulnerability in the OpenSSL cryptographic library. It allowed attackers to read the memory of servers, exposing sensitive information like session tokens, passwords, and the server's private keys. The incident served as a powerful reminder that security depends on every component of the stack, and that keeping dependencies updated is non-negotiable for maintaining a secure posture.",
+          "imageUrl": "https://picsum.photos/seed/servers/600/400",
+          "imageHint": "server room"
         }
       },
       {
+        "id": "log4shell",
+        "title": "Log4Shell (Log4j, 2021)",
         "vulnerability": "Remote Code Execution in Log4j (Log4Shell)",
         "impact": "Allowed unauthenticated remote code execution on countless servers, affecting a vast range of software.",
         "lesson": "Open-source dependency security is critical. Supply chain vulnerabilities can have a massive and immediate impact.",
         "modalContent": {
-          "paragraph": "Log4Shell was a zero-day vulnerability in Log4j, a popular Java logging library. It was incredibly easy to exploit, allowing attackers to execute arbitrary code on servers by simply sending a crafted string that the library would log. This highlighted the immense risk of supply chain attacks and emphasized the need for Software Bill of Materials (SBOM) and robust dependency scanning to quickly identify and patch vulnerable components."
+          "paragraph": "Log4Shell was a zero-day vulnerability in Log4j, a popular Java logging library. It was incredibly easy to exploit, allowing attackers to execute arbitrary code on servers by simply sending a crafted string that the library would log. This highlighted the immense risk of supply chain attacks and emphasized the need for Software Bill of Materials (SBOM) and robust dependency scanning to quickly identify and patch vulnerable components.",
+          "imageUrl": "https://picsum.photos/seed/supplychain/600/400",
+          "imageHint": "software supply chain"
         }
       },
       {
+        "id": "solarwinds",
+        "title": "SolarWinds Attack (2020)",
         "vulnerability": "Compromised build server (SolarWinds)",
         "impact": "Malicious code was injected into software updates, creating a backdoor into thousands of organizations, including government agencies.",
         "lesson": "Securing the software build and supply chain is as important as securing the application itself. Trust must be verified at every step.",
         "modalContent": {
-          "paragraph": "The SolarWinds attack was a sophisticated supply chain attack where malicious code was injected into the Orion software during the build process. This trojanized update was then signed and distributed to customers. It created a backdoor, allowing attackers to compromise thousands of high-value networks. The breach underscored the need for end-to-end security in the CI/CD pipeline, including build server integrity, dependency verification, and signed artifacts."
+          "paragraph": "The SolarWinds attack was a sophisticated supply chain attack where malicious code was injected into the Orion software during the build process. This trojanized update was then signed and distributed to customers. It created a backdoor, allowing attackers to compromise thousands of high-value networks. The breach underscored the need for end-to-end security in the CI/CD pipeline, including build server integrity, dependency verification, and signed artifacts.",
+          "imageUrl": "https://picsum.photos/seed/cloud/600/400",
+          "imageHint": "cloud security"
         }
       },
       {
+        "id": "moveit",
+        "title": "MOVEit Breach (2023)",
         "vulnerability": "SQL Injection in MOVEit Transfer",
         "impact": "Data theft from over 2,700 organizations, including government agencies, affecting more than 90 million individuals.",
         "lesson": "Third-party software is part of your attack surface. A single zero-day vulnerability in a widely used tool can have catastrophic consequences.",
         "modalContent": {
-          "paragraph": "In 2023, a critical SQL injection vulnerability was discovered in the MOVEit Transfer software, a popular tool for secure file transfers. The Clop ransomware gang exploited this zero-day flaw to steal massive amounts of sensitive data from a wide range of organizations globally. The incident highlighted the significant risks associated with third-party software and the importance of having a rapid response plan for supply chain vulnerabilities."
+          "paragraph": "In 2023, a critical SQL injection vulnerability was discovered in the MOVEit Transfer software, a popular tool for secure file transfers. The Clop ransomware gang exploited this zero-day flaw to steal massive amounts of sensitive data from a wide range of organizations globally. The incident highlighted the significant risks associated with third-party software and the importance of having a rapid response plan for supply chain vulnerabilities.",
+          "imageUrl": "https://picsum.photos/seed/data-transfer/600/400",
+          "imageHint": "data transfer"
         }
       },
       {
+        "id": "lastpass",
+        "title": "LastPass Breach (2022)",
         "vulnerability": "Compromised developer credentials and cloud backups",
         "impact": "Theft of encrypted customer password vaults and sensitive user data. All LastPass users were advised to change their master passwords.",
         "lesson": "Defense-in-depth is critical. A single point of failure (like a developer's home computer) can lead to a cascade of security failures, and cloud security misconfigurations can be devastating.",
         "modalContent": {
-          "paragraph": "The 2022 LastPass breach was a multi-stage attack that began with a compromise of a senior DevOps engineer's home computer. The attackers stole corporate vault credentials, which they then used to access cloud-based backup storage containing customer vault data. Although the vaults were encrypted, the attackers also obtained sensitive, unencrypted user information. The incident was a stark lesson in the importance of securing developer environments and implementing strict, multi-layered access controls for critical cloud infrastructure."
+          "paragraph": "The 2022 LastPass breach was a multi-stage attack that began with a compromise of a senior DevOps engineer's home computer. The attackers stole corporate vault credentials, which they then used to access cloud-based backup storage containing customer vault data. Although the vaults were encrypted, the attackers also obtained sensitive, unencrypted user information. The incident was a stark lesson in the importance of securing developer environments and implementing strict, multi-layered access controls for critical cloud infrastructure.",
+          "imageUrl": "https://picsum.photos/seed/password-vault/600/400",
+          "imageHint": "password vault"
         }
       },
       {
+        "id": "okta",
+        "title": "Okta Breach (2023)",
         "vulnerability": "Stolen credentials for a support case management system",
         "impact": "Attackers accessed and downloaded HAR files from support tickets, which contained sensitive session tokens, allowing them to impersonate legitimate users.",
         "lesson": "An attack on a secondary system (like a support portal) can be a stepping stone to compromise the primary service. All systems, even non-production ones, require robust security.",
         "modalContent": {
-          "paragraph": "In October 2023, identity and access management provider Okta disclosed a breach where attackers gained access to its support case management system using stolen credentials. They were able to view files uploaded by customers, including HAR files which contained session tokens. The attackers used these tokens to hijack user sessions, bypassing MFA and gaining unauthorized access to customer accounts. The breach emphasized that security must be holistic, as a weakness in one system can undermine the security of the entire platform."
+          "paragraph": "In October 2023, identity and access management provider Okta disclosed a breach where attackers gained access to its support case management system using stolen credentials. They were able to view files uploaded by customers, including HAR files which contained session tokens. The attackers used these tokens to hijack user sessions, bypassing MFA and gaining unauthorized access to customer accounts. The breach emphasized that security must be holistic, as a weakness in one system can undermine the security of the entire platform.",
+          "imageUrl": "https://picsum.photos/seed/support-ticket/600/400",
+          "imageHint": "support ticket"
         }
       }
     ]
@@ -325,5 +349,3 @@
     "select": "Select language"
   }
 }
-
-    
