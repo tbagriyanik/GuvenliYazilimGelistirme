@@ -5,6 +5,7 @@ import { CodeSnippetGenerator } from '@/components/code-snippet-generator';
 import { RealWorldExamples } from '@/components/real-world-examples';
 import { SecurityChecklist } from '@/components/security-checklist';
 import { Footer } from '@/components/footer';
+import { ScrollToTop } from '@/components/scroll-to-top';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <SecurityChecklist />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
