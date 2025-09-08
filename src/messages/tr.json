@@ -347,7 +347,8 @@
     ]
   },
   "Footer": {
-    "copyright": "Güvenli Uygulama Geliştirme. Bu proje açık kaynaklıdır."
+    "copyright": "Güvenli Uygulama Geliştirme. Bu proje açık kaynaklıdır.",
+    "school": "Tuzla Mesleki ve Teknik Anadolu Lisesi Bilişim Teknolojileri Alanı"
   },
   "CopyButton": {
     "copy": "Panoya kopyala",

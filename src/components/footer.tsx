@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -13,9 +14,12 @@ export function Footer() {
   
   return (
     <footer className="bg-muted border-t">
-      <div className="container mx-auto py-6 px-4 md:px-6">
-        <p className="text-center text-sm text-muted-foreground">
+      <div className="container mx-auto py-6 px-4 md:px-6 text-center text-sm text-muted-foreground">
+        <p>
           Copyleft &copy; {year} {t('copyright')}
+        </p>
+        <p className="mt-2">
+          {t('school')}
         </p>
       </div>
     </footer>

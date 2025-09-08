@@ -347,7 +347,8 @@
     ]
   },
   "Footer": {
-    "copyright": "Secure Application Development. This project is open source."
+    "copyright": "Secure Application Development. This project is open source.",
+    "school": "Tuzla Vocational and Technical Anatolian High School Information Technologies Department"
   },
   "CopyButton": {
     "copy": "Copy to clipboard",
