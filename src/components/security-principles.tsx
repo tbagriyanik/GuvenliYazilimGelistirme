@@ -71,8 +71,7 @@ export function SecurityPrinciples() {
           {principles.map((p) => {
             const IconComponent = iconMap[p.icon] || ShieldCheck; // Fallback icon
             return (
-              <div key={p.id}>
-                <Dialog open={activeModal === p.id} onOpenChange={(open) => handleOpenChange(open, p.id)}>
+                <Dialog key={p.id} open={activeModal === p.id} onOpenChange={(open) => handleOpenChange(open, p.id)}>
                   <Card className="glass-card flex flex-col text-center items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                     <CardHeader className="w-full">
                       <div className="mx-auto bg-primary/20 p-3 rounded-full mb-4 w-fit">
@@ -117,7 +116,6 @@ export function SecurityPrinciples() {
                     </div>
                   </DialogContent>
                 </Dialog>
-              </div>
             );
           })}
         </div>
