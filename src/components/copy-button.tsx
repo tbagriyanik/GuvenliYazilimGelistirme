@@ -4,9 +4,11 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Check, Copy } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { useTranslations } from 'next-intl';
 
 export function CopyButton({ text }: { text: string }) {
   const [isCopied, setIsCopied] = useState(false);
+  const t = useTranslations('CopyButton');
 
   const handleCopy = () => {
     if (!text) return;
@@ -24,7 +26,7 @@ export function CopyButton({ text }: { text: string }) {
           </Button>
         </TooltipTrigger>
         <TooltipContent>
-          <p>{isCopied ? "Copied!" : "Copy to clipboard"}</p>
+          <p>{isCopied ? t('copied') : t('copy')}</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

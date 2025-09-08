@@ -11,17 +11,20 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Menu } from 'lucide-react';
-
-const navItems = [
-  { name: 'Principles', href: '#principles' },
-  { name: 'Generator', href: '#generator' },
-  { name: 'Examples', href: '#examples' },
-  { name: 'Checklist', href: '#checklist' },
-];
+import { useTranslations } from 'next-intl';
+import LanguageSwitcher from './language-switcher';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const t = useTranslations('Header');
+
+  const navItems = [
+    { name: t('nav.principles'), href: '#principles' },
+    { name: t('nav.generator'), href: '#generator' },
+    { name: t('nav.examples'), href: '#examples' },
+    { name: t('nav.checklist'), href: '#checklist' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,14 +44,16 @@ export function Header() {
           <Shield className="h-7 w-7" />
           <span>SecureBase</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             <Link key={item.name} href={item.href} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
               {item.name}
             </Link>
           ))}
+           <LanguageSwitcher />
         </nav>
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-2">
+          <LanguageSwitcher />
            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">

@@ -25,6 +25,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Loader2, Sparkles } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { CopyButton } from './copy-button';
+import { useTranslations } from 'next-intl';
 
 const securityPrinciples = [
   "Input Validation",
@@ -48,19 +49,20 @@ const programmingLanguages = [
   "PHP",
 ];
 
-const FormSchema = z.object({
-  securityPrinciple: z.string({
-    required_error: 'Please select a security principle.',
-  }),
-  programmingLanguage: z.string({
-    required_error: 'Please select a programming language.',
-  }),
-});
-
 export function CodeSnippetGenerator() {
   const [isPending, startTransition] = useTransition();
   const [generatedCode, setGeneratedCode] = useState('');
   const { toast } = useToast();
+  const t = useTranslations('CodeSnippetGenerator');
+
+  const FormSchema = z.object({
+    securityPrinciple: z.string({
+      required_error: t('form.securityPrinciple.required'),
+    }),
+    programmingLanguage: z.string({
+      required_error: t('form.programmingLanguage.required'),
+    }),
+  });
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -75,8 +77,8 @@ export function CodeSnippetGenerator() {
       } else {
         toast({
           variant: 'destructive',
-          title: 'Generation Failed',
-          description: result.error || 'Could not generate code snippet.',
+          title: t('toast.title'),
+          description: result.error || t('toast.description'),
         });
       }
     });
@@ -86,9 +88,9 @@ export function CodeSnippetGenerator() {
     <section id="generator" className="py-16 md:py-24 bg-card border-y">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary font-headline">Code Snippet Generator</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary font-headline">{t('title')}</h2>
           <p className="mt-4 text-muted-foreground">
-            Select a security principle and a programming language to generate a practical code example using AI.
+            {t('subtitle')}
           </p>
         </div>
         <div className="max-w-4xl mx-auto">
@@ -102,11 +104,11 @@ export function CodeSnippetGenerator() {
                       name="securityPrinciple"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Security Principle</FormLabel>
+                          <FormLabel>{t('form.securityPrinciple.label')}</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger>
-                                <SelectValue placeholder="Select a principle" />
+                                <SelectValue placeholder={t('form.securityPrinciple.placeholder')} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
@@ -122,11 +124,11 @@ export function CodeSnippetGenerator() {
                       name="programmingLanguage"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Programming Language</FormLabel>
+                          <FormLabel>{t('form.programmingLanguage.label')}</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger>
-                                <SelectValue placeholder="Select a language" />
+                                <SelectValue placeholder={t('form.programmingLanguage.placeholder')} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
@@ -140,9 +142,9 @@ export function CodeSnippetGenerator() {
                   </div>
                   <Button type="submit" disabled={isPending} className="w-full md:w-auto bg-accent hover:bg-accent/90 text-accent-foreground">
                     {isPending ? (
-                      <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Generating...</>
+                      <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> {t('form.button.generating')}</>
                     ) : (
-                      <><Sparkles className="mr-2 h-4 w-4" /> Generate Snippet</>
+                      <><Sparkles className="mr-2 h-4 w-4" /> {t('form.button.generate')}</>
                     )}
                   </Button>
                 </form>
@@ -152,7 +154,7 @@ export function CodeSnippetGenerator() {
           
           {(isPending || generatedCode) && (
             <div className="mt-8">
-              <h3 className="font-semibold mb-2 text-center">Generated Code:</h3>
+              <h3 className="font-semibold mb-2 text-center">{t('generatedCodeTitle')}</h3>
               <Card className="bg-gray-900 text-gray-100 font-mono text-sm relative">
                   <div className="absolute top-2 right-2 z-10">
                     <CopyButton text={generatedCode} />

@@ -1,0 +1,208 @@
+{
+  "Header": {
+    "nav": {
+      "principles": "Principles",
+      "generator": "Generator",
+      "examples": "Examples",
+      "checklist": "Checklist"
+    }
+  },
+  "Hero": {
+    "title": "Build Software, Securely.",
+    "subtitle": "Welcome to SecureBase, your comprehensive guide to understanding and implementing fundamental software security principles.",
+    "cta": "Explore Principles"
+  },
+  "SecurityPrinciples": {
+    "title": "Core Security Principles",
+    "subtitle": "These foundational concepts are the building blocks of secure software development. Understanding and applying them is crucial for protecting your applications and users.",
+    "learnMore": "Learn More",
+    "principles": [
+      {
+        "title": "Input Validation",
+        "description": "Never trust user input. Validate, sanitize, and encode all data from external sources.",
+        "details": [
+          "Use allow-lists for validation, not block-lists.",
+          "Prevent SQL Injection with parameterized queries.",
+          "Encode output to stop Cross-Site Scripting (XSS)."
+        ],
+        "modalContent": {
+          "paragraph": "Input validation is the first line of defense against many common web application vulnerabilities. It involves ensuring that any data received from a user or external system conforms to expected formats, types, and lengths before it's processed. Failing to validate input can lead to code injection, buffer overflows, and other serious security flaws. Always treat external data as untrusted and validate it on the server-side, even if client-side validation is already in place."
+        }
+      },
+      {
+        "title": "Authentication & Authorization",
+        "description": "Verify who a user is (authentication) and what they are allowed to do (authorization).",
+        "details": [
+          "Enforce strong password policies and MFA.",
+          "Use secure session management.",
+          "Implement Role-Based Access Control (RBAC)."
+        ],
+        "modalContent": {
+          "paragraph": "Authentication confirms a user's identity, typically with credentials like a password and increasingly with multi-factor authentication (MFA). Authorization determines what an authenticated user is permitted to do. A common mistake is to perform an action based only on a user's ID without checking if that user has the specific rights to perform that action. Proper authorization checks must be enforced on every sensitive request to prevent unauthorized access to data and functionality."
+        }
+      },
+      {
+        "title": "Cryptography",
+        "description": "Protect data in transit and at rest using strong, industry-standard encryption.",
+        "details": [
+          "Use TLS for all network communication.",
+          "Encrypt sensitive data like PII in databases.",
+          "Never create your own cryptographic algorithms."
+        ],
+        "modalContent": {
+          "paragraph": "Cryptography uses mathematical algorithms to transform data into a format that is unreadable without a secret key. It's essential for protecting data confidentiality and integrity. Data in transit should always be encrypted using protocols like TLS (Transport Layer Security) to prevent eavesdropping. Sensitive data at rest, such as customer information in a database, should also be encrypted. It's critical to use well-vetted, standard cryptographic libraries and to avoid inventing custom encryption schemes, which are often flawed."
+        }
+      },
+      {
+        "title": "Error Handling & Logging",
+        "description": "Fail securely without leaking sensitive information. Log events for monitoring and forensics.",
+        "details": [
+          "Avoid exposing stack traces or system info in errors.",
+          "Log authentication attempts, access control failures, etc.",
+          "Ensure logs are protected from tampering."
+        ],
+        "modalContent": {
+          "paragraph": "Secure error handling prevents the leakage of sensitive information to attackers. Verbose error messages can reveal system paths, library versions, or database structures, which can aid an attacker. Instead, show generic error messages to users and log detailed, specific information on the server for developers. Comprehensive logging of security-relevant events is crucial for detecting attacks, investigating breaches, and understanding how a system is being used or abused."
+        }
+      },
+      {
+        "title": "Data Protection",
+        "description": "Classify data by sensitivity and apply appropriate security controls.",
+        "details": [
+          "Minimize the data you collect and store.",
+          "Protect sensitive data at rest and in transit.",
+          "Have a clear data retention and disposal policy."
+        ],
+        "modalContent": {
+          "paragraph": "Data protection involves understanding the data your application handles, classifying it based on sensitivity (e.g., public, internal, confidential), and applying security controls that are appropriate for that classification. This includes data minimization—collecting and retaining only the data that is absolutely necessary. Secure data disposal is also vital; simply deleting a file often leaves it recoverable, so proper data wiping or destruction techniques should be used when data is no longer needed."
+        }
+      },
+      {
+        "title": "Secure Configuration",
+        "description": "Harden all components of your stack, from servers to frameworks.",
+        "details": [
+          "Remove default credentials and unused features.",
+          "Keep all software and libraries up to date.",
+          "Regularly audit configurations for weaknesses."
+        ],
+        "modalContent": {
+          "paragraph": "Many systems are insecure out-of-the-box. Secure configuration involves hardening every layer of the technology stack, including the operating system, web server, application server, and database. This means changing default passwords, disabling unnecessary services and features, and configuring security settings to be as restrictive as possible. Automated configuration management and regular security audits can help maintain a strong security posture and prevent configuration drift over time."
+        }
+      },
+      {
+        "title": "Principle of Least Privilege",
+        "description": "Grant users and processes only the minimum permissions necessary to do their job.",
+        "details": [
+          "Avoid running processes with root/admin rights.",
+          "Limit database user permissions.",
+          "Regularly review user access rights."
+        ],
+        "modalContent": {
+          "paragraph": "The Principle of Least Privilege dictates that any user, program, or process should have only the bare minimum privileges necessary to perform its function. For example, a web application should connect to the database with a user account that can only perform required actions (SELECT, INSERT, UPDATE) on specific tables, rather than using a high-powered administrative account. This principle limits the damage that can result from an accident, error, or exploit."
+        }
+      }
+    ]
+  },
+  "CodeSnippetGenerator": {
+    "title": "Code Snippet Generator",
+    "subtitle": "Select a security principle and a programming language to generate a practical code example using AI.",
+    "form": {
+      "securityPrinciple": {
+        "label": "Security Principle",
+        "placeholder": "Select a principle",
+        "required": "Please select a security principle."
+      },
+      "programmingLanguage": {
+        "label": "Programming Language",
+        "placeholder": "Select a language",
+        "required": "Please select a programming language."
+      },
+      "button": {
+        "generate": "Generate Snippet",
+        "generating": "Generating..."
+      }
+    },
+    "generatedCodeTitle": "Generated Code:",
+    "toast": {
+      "title": "Generation Failed",
+      "description": "Could not generate code snippet."
+    }
+  },
+  "RealWorldExamples": {
+    "title": "Real-World Examples",
+    "subtitle": "Learning from the past is key to a secure future. Here are some high-profile breaches and the lessons they teach us.",
+    "vulnerabilityLabel": "Vulnerability",
+    "impactLabel": "Impact",
+    "lessonLabel": "Key Lesson",
+    "examples": [
+      {
+        "vulnerability": "Unpatched Apache Struts framework",
+        "impact": "Personal data of 147 million people exposed, including Social Security numbers and driver's license numbers.",
+        "lesson": "Timely patching of known vulnerabilities is critical. A single unpatched server can compromise an entire organization."
+      },
+      {
+        "vulnerability": "Compromised build server",
+        "impact": "Malicious code was injected into Orion software updates, affecting thousands of organizations, including parts of the US government.",
+        "lesson": "Securing the software development lifecycle (SDLC) and supply chain is as important as securing the application itself."
+      },
+      {
+        "vulnerability": "Misconfigured Web Application Firewall (WAF)",
+        "impact": "A former employee exploited a misconfigured firewall to access and exfiltrate data of over 100 million credit card applicants.",
+        "lesson": "Secure configuration of cloud services and infrastructure is essential. Misconfigurations are a leading cause of cloud breaches."
+      }
+    ]
+  },
+  "SecurityChecklist": {
+    "title": "Interactive Security Checklist",
+    "subtitle": "Use this checklist to audit your application against common security best practices. Expand each section to review the items.",
+    "categories": [
+      {
+        "title": "Input & Data Validation",
+        "items": [
+          "Sanitize all user inputs on the server-side.",
+          "Use parameterized queries to prevent SQL injection.",
+          "Validate data type, length, format, and range.",
+          "Encode output to prevent Cross-Site Scripting (XSS)."
+        ]
+      },
+      {
+        "title": "Authentication & Session Management",
+        "items": [
+          "Enforce strong password policies.",
+          "Implement multi-factor authentication (MFA).",
+          "Generate new session IDs upon login.",
+          "Securely store password hashes (e.g., using bcrypt).",
+          "Implement secure password recovery mechanisms."
+        ]
+      },
+      {
+        "title": "Access Control",
+        "items": [
+          "Enforce the Principle of Least Privilege.",
+          "Implement role-based access control (RBAC).",
+          "Deny access by default.",
+          "Validate user permissions on every sensitive request."
+        ]
+      },
+      {
+        "title": "Cryptography & Data Protection",
+        "items": [
+          "Use TLS/SSL for all data in transit.",
+          "Encrypt sensitive data at rest.",
+          "Do not store sensitive data unless absolutely necessary.",
+          "Use strong, industry-standard cryptographic algorithms."
+        ]
+      }
+    ]
+  },
+  "Footer": {
+    "copyright": "SecureBase. All rights reserved."
+  },
+  "CopyButton": {
+    "copy": "Copy to clipboard",
+    "copied": "Copied!"
+  },
+  "LanguageSwitcher": {
+    "select": "Select language"
+  }
+}
