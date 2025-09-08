@@ -1,7 +1,7 @@
 
 {
   "Header": {
-    "brand": "Güvenli Uygurama Geliştirme",
+    "brand": "Güvenli Uygulama Geliştirme",
     "nav": {
       "principles": "İlkeler",
       "generator": "AI Kod Oluştur",
@@ -349,3 +349,5 @@
     "select": "Dil seçin"
   }
 }
+
+    
