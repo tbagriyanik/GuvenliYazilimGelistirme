@@ -71,51 +71,51 @@ export function SecurityPrinciples() {
           {principles.map((p) => {
             const IconComponent = iconMap[p.icon] || ShieldCheck; // Fallback icon
             return (
-                <Dialog key={p.id} open={activeModal === p.id} onOpenChange={(open) => handleOpenChange(open, p.id)}>
-                  <Card className="glass-card flex flex-col text-center items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <CardHeader className="w-full">
-                      <div className="mx-auto bg-primary/20 p-3 rounded-full mb-4 w-fit">
-                        <IconComponent className="h-8 w-8 text-primary" />
-                      </div>
-                      <CardTitle>{p.title}</CardTitle>
-                      <CardDescription className="pt-2">{p.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex-grow flex flex-col justify-center w-full">
-                      <ul className="space-y-2 text-sm text-muted-foreground list-none text-left p-0">
-                        {p.details.map((detail: string, index: number) => (
-                          <li key={index} className="flex items-start">
-                            <ShieldCheck className="h-4 w-4 text-accent mr-2 mt-1 flex-shrink-0" />
-                            <span>{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                    <CardFooter className="w-full">
-                      <Button variant="outline" className="w-full" onClick={() => handleOpenChange(true, p.id)}>
-                          {t('learnMore')} <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                  <DialogContent className={cn("sm:max-w-[625px]", "glass-card")}>
-                    <DialogHeader>
-                      <DialogTitle>{p.title}</DialogTitle>
-                    </DialogHeader>
-                    <div className="py-4 space-y-4">
-                      <div className="w-full aspect-video rounded-lg overflow-hidden relative">
-                        <Image
-                          src={p.modalContent.imageUrl}
-                          alt={p.title}
-                          fill
-                          className="object-cover"
-                          data-ai-hint={p.modalContent.imageHint}
-                        />
-                      </div>
-                      <p className="text-muted-foreground">
-                        {p.modalContent.paragraph}
-                      </p>
+              <Dialog key={p.id} open={activeModal === p.id} onOpenChange={(open) => handleOpenChange(open, p.id)}>
+                <Card className="glass-card flex flex-col text-center items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                  <CardHeader className="w-full">
+                    <div className="mx-auto bg-primary/20 p-3 rounded-full mb-4 w-fit">
+                      <IconComponent className="h-8 w-8 text-primary" />
                     </div>
-                  </DialogContent>
-                </Dialog>
+                    <CardTitle>{p.title}</CardTitle>
+                    <CardDescription className="pt-2">{p.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-grow flex flex-col justify-center w-full">
+                    <ul className="space-y-2 text-sm text-muted-foreground list-none text-left p-0">
+                      {p.details.map((detail: string, index: number) => (
+                        <li key={index} className="flex items-start">
+                          <ShieldCheck className="h-4 w-4 text-accent mr-2 mt-1 flex-shrink-0" />
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardFooter className="w-full">
+                    <Button variant="outline" className="w-full" onClick={() => handleOpenChange(true, p.id)}>
+                        {t('learnMore')} <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </CardFooter>
+                </Card>
+                <DialogContent className={cn("sm:max-w-[625px]", "glass-card")}>
+                  <DialogHeader>
+                    <DialogTitle>{p.title}</DialogTitle>
+                  </DialogHeader>
+                  <div className="py-4 space-y-4">
+                    <div className="w-full aspect-video rounded-lg overflow-hidden relative">
+                      <Image
+                        src={p.modalContent.imageUrl}
+                        alt={p.title}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={p.modalContent.imageHint}
+                      />
+                    </div>
+                    <p className="text-muted-foreground">
+                      {p.modalContent.paragraph}
+                    </p>
+                  </div>
+                </DialogContent>
+              </Dialog>
             );
           })}
         </div>
