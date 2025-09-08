@@ -7,7 +7,7 @@ import { Button } from './ui/button';
 import { ShieldCheck, Lock, KeyRound, ShieldAlert, DatabaseZap, Settings, UserMinus, type LucideIcon, ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from '@/navigation';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams } from "next/navigation";
 import { useCallback } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -175,8 +175,6 @@ export function SecurityPrinciples() {
                       fill
                       className="object-cover"
                       data-ai-hint={p.modalContent.imageHint}
-                      width={600}
-                      height={400}
                     />
                    </div>
                   <p className="text-muted-foreground">

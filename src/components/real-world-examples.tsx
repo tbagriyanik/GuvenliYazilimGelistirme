@@ -121,8 +121,6 @@ export function RealWorldExamples() {
                       fill
                       className="object-cover"
                       data-ai-hint={ex.modalContent.imageHint}
-                      width={600}
-                      height={400}
                     />
                    </div>
                   <p className="text-muted-foreground">
