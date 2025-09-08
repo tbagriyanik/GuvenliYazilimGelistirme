@@ -5,12 +5,38 @@ import Image from 'next/image';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
 import { Button } from './ui/button';
-import { ShieldCheck, Lock, UserMinus, ShieldAlert, Settings, KeyRound, DatabaseZap, FileLock, Cog, Monitor, type LucideIcon, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Lock, UserMinus, ShieldAlert, KeyRound, FileLock, Cog, Monitor, type LucideIcon, ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from '@/navigation';
 import { useSearchParams } from "next/navigation";
 import { useCallback } from 'react';
 import { cn } from '@/lib/utils';
+
+// Type definitions for the principle object from the JSON file
+type Principle = {
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+  details: string[];
+  modalContent: {
+    paragraph: string;
+    imageUrl: string;
+    imageHint: string;
+  };
+};
+
+// Icon mapping to dynamically render icons based on string name
+const iconMap: { [key: string]: LucideIcon } = {
+  ShieldCheck,
+  Lock,
+  KeyRound,
+  ShieldAlert,
+  FileLock,
+  Cog,
+  UserMinus,
+  Monitor,
+};
 
 export function SecurityPrinciples() {
   const t = useTranslations('SecurityPrinciples');
@@ -28,104 +54,8 @@ export function SecurityPrinciples() {
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
   }, [pathname, router, searchParams]);
 
-  const principles: {
-    id: string;
-    title: string;
-    description: string;
-    Icon: LucideIcon;
-    details: string[];
-    modalContent: {
-      paragraph: string;
-      imageUrl: string;
-      imageHint: string;
-    };
-  }[] = [
-    {
-      id: "input-validation",
-      title: t('principles.0.title'),
-      description: t('principles.0.description'),
-      Icon: ShieldCheck,
-      details: t.raw('principles.0.details'),
-      modalContent: {
-        paragraph: t('principles.0.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/datasecurity/600/400",
-        imageHint: "data security"
-      }
-    },
-    {
-      id: "auth",
-      title: t('principles.1.title'),
-      description: t('principles.1.description'),
-      Icon: Lock,
-      details: t.raw('principles.1.details'),
-      modalContent: {
-        paragraph: t('principles.1.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/login/600/400",
-        imageHint: "login security"
-      }
-    },
-    {
-      id: "crypto",
-      title: t('principles.2.title'),
-      description: t('principles.2.description'),
-      Icon: KeyRound,
-      details: t.raw('principles.2.details'),
-       modalContent: {
-        paragraph: t('principles.2.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/access/600/400",
-        imageHint: "access control"
-      }
-    },
-    {
-      id: "error-handling",
-      title: t('principles.3.title'),
-      description: t('principles.3.description'),
-      Icon: ShieldAlert,
-      details: t.raw('principles.3.details'),
-      modalContent: {
-        paragraph: t('principles.3.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/logs/600/400",
-        imageHint: "server logs"
-      }
-    },
-    {
-      id: "data-protection",
-      title: t('principles.4.title'),
-      description: t('principles.4.description'),
-      Icon: FileLock,
-      details: t.raw('principles.4.details'),
-      modalContent: {
-        paragraph: t('principles.4.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/network/600/400",
-        imageHint: "network settings"
-      }
-    },
-    {
-      id: "secure-configuration",
-      title: t('principles.5.title'),
-      description: t('principles.5.description'),
-      Icon: Cog,
-      details: t.raw('principles.5.details'),
-      modalContent: {
-        paragraph: t('principles.5.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/encryption/600/400",
-        imageHint: "digital encryption"
-      }
-    },
-    {
-      id: "authorization",
-      title: t('principles.6.title'),
-      description: t('principles.6.description'),
-      Icon: UserMinus,
-      details: t.raw('principles.6.details'),
-      modalContent: {
-        paragraph: t('principles.6.modalContent.paragraph'),
-        imageUrl: "https://picsum.photos/seed/database/600/400",
-        imageHint: "database server"
-      }
-    }
-  ];
-
+  // Fetch the entire principles array directly from the translation file
+  const principles: Principle[] = t.raw('principles');
   const activeModal = searchParams.get('modal');
 
   return (
@@ -138,53 +68,56 @@ export function SecurityPrinciples() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {principles.map((p) => (
-             <Dialog key={p.id} open={activeModal === p.id} onOpenChange={(open) => handleOpenChange(open, p.id)}>
-              <Card className="glass-card flex flex-col text-center items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <CardHeader className="w-full">
-                  <div className="mx-auto bg-primary/20 p-3 rounded-full mb-4 w-fit">
-                    <p.Icon className="h-8 w-8 text-primary" />
+          {principles.map((p) => {
+            const IconComponent = iconMap[p.icon] || ShieldCheck; // Fallback icon
+            return (
+              <Dialog key={p.id} open={activeModal === p.id} onOpenChange={(open) => handleOpenChange(open, p.id)}>
+                <Card className="glass-card flex flex-col text-center items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                  <CardHeader className="w-full">
+                    <div className="mx-auto bg-primary/20 p-3 rounded-full mb-4 w-fit">
+                      <IconComponent className="h-8 w-8 text-primary" />
+                    </div>
+                    <CardTitle>{p.title}</CardTitle>
+                    <CardDescription className="pt-2">{p.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-grow flex flex-col justify-center w-full">
+                    <ul className="space-y-2 text-sm text-muted-foreground list-none text-left p-0">
+                      {p.details.map((detail: string, index: number) => (
+                        <li key={index} className="flex items-start">
+                          <ShieldCheck className="h-4 w-4 text-accent mr-2 mt-1 flex-shrink-0" />
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardFooter className="w-full">
+                    <Button variant="outline" className="w-full" onClick={() => handleOpenChange(true, p.id)}>
+                        {t('learnMore')} <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </CardFooter>
+                </Card>
+                <DialogContent className={cn("sm:max-w-[625px]", "glass-card")}>
+                  <DialogHeader>
+                    <DialogTitle>{p.title}</DialogTitle>
+                  </DialogHeader>
+                  <div className="py-4 space-y-4">
+                    <div className="w-full aspect-video rounded-lg overflow-hidden relative">
+                      <Image
+                        src={p.modalContent.imageUrl}
+                        alt={p.title}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={p.modalContent.imageHint}
+                      />
+                    </div>
+                    <p className="text-muted-foreground">
+                      {p.modalContent.paragraph}
+                    </p>
                   </div>
-                  <CardTitle>{p.title}</CardTitle>
-                  <CardDescription className="pt-2">{p.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow flex flex-col justify-center w-full">
-                  <ul className="space-y-2 text-sm text-muted-foreground list-none text-left p-0">
-                    {p.details.map((detail: string, index: number) => (
-                      <li key={index} className="flex items-start">
-                         <ShieldCheck className="h-4 w-4 text-accent mr-2 mt-1 flex-shrink-0" />
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter className="w-full">
-                   <Button variant="outline" className="w-full" onClick={() => handleOpenChange(true, p.id)}>
-                      {t('learnMore')} <ArrowRight className="ml-2 h-4 w-4" />
-                   </Button>
-                </CardFooter>
-              </Card>
-              <DialogContent className={cn("sm:max-w-[625px]", "glass-card")}>
-                <DialogHeader>
-                  <DialogTitle>{p.title}</DialogTitle>
-                </DialogHeader>
-                <div className="py-4 space-y-4">
-                   <div className="w-full aspect-video rounded-lg overflow-hidden relative">
-                     <Image
-                      src={p.modalContent.imageUrl}
-                      alt={p.title}
-                      fill
-                      className="object-cover"
-                      data-ai-hint={p.modalContent.imageHint}
-                    />
-                   </div>
-                  <p className="text-muted-foreground">
-                    {p.modalContent.paragraph}
-                  </p>
-                </div>
-              </DialogContent>
-            </Dialog>
-          ))}
+                </DialogContent>
+              </Dialog>
+            );
+          })}
         </div>
       </div>
     </section>

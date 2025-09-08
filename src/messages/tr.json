@@ -20,6 +20,8 @@
     "learnMore": "Daha Fazla Bilgi",
     "principles": [
       {
+        "id": "input-validation",
+        "icon": "ShieldCheck",
         "title": "Girdi Kontrolü",
         "description": "Kullanıcı girdisine asla güvenmeyin. Whitelist yaklaşımı ve parametreli sorgularla enjeksiyonu önleyin.",
         "details": [
@@ -28,10 +30,14 @@
           "Prepared statement ile SQL sorgularını güvenli hale getirin."
         ],
         "modalContent": {
-          "paragraph": "Girdi kontrolü, SQL Injection ve Cross-Site Scripting (XSS) gibi saldırılara karşı ilk savunma hattıdır. Bir kullanıcıdan alınan verilerin işlenmeden önce beklenen formatlara uygunluğunu sağlamayı içerir. Sadece bilinen iyi karakterlere izin veren whitelist yaklaşımı, kötü niyetli girdileri engellemeye çalışan blacklist yaklaşımından çok daha güvenlidir. Veritabanı etkileşimlerinde, kullanıcı girdisinin çalıştırılabilir kod değil, veri olarak ele alınmasını sağlamak için daima prepared statement veya parametreli sorgular kullanın."
+          "paragraph": "Girdi kontrolü, SQL Injection ve Cross-Site Scripting (XSS) gibi saldırılara karşı ilk savunma hattıdır. Bir kullanıcıdan alınan verilerin işlenmeden önce beklenen formatlara uygunluğunu sağlamayı içerir. Sadece bilinen iyi karakterlere izin veren whitelist yaklaşımı, kötü niyetli girdileri engellemeye çalışan blacklist yaklaşımından çok daha güvenlidir. Veritabanı etkileşimlerinde, kullanıcı girdisinin çalıştırılabilir kod değil, veri olarak ele alınmasını sağlamak için daima prepared statement veya parametreli sorgular kullanın.",
+          "imageUrl": "https://picsum.photos/seed/datasecurity/600/400",
+          "imageHint": "veri güvenliği"
         }
       },
       {
+        "id": "authentication",
+        "icon": "Lock",
         "title": "Kimlik Doğrulama",
         "description": "Güçlü politikalar, çok faktörlü kimlik doğrulama ve güvenli token yönetimi ile kullanıcı kimliğini doğrulayın.",
         "details": [
@@ -40,10 +46,14 @@
           "JWT'lerin bir son kullanma süresi olduğundan ve issuer/audience doğrulaması yapıldığından emin olun."
         ],
         "modalContent": {
-          "paragraph": "Kimlik doğrulama, bir kullanıcının kimliğini teyit eder. Bu, karmaşıklık ve minimum uzunluk gerektiren güçlü bir parola politikasıyla başlar. Parolalar asla düz metin olarak saklanmamalıdır; bcrypt veya Argon2 gibi güçlü, tuzlanmış (salted) bir hashing algoritması kullanılmalıdır. Çok Faktörlü Kimlik Doğrulama (MFA) kritik bir ikinci güvenlik katmanı ekler. JSON Web Token (JWT) kullanırken, her zaman kısa bir son kullanma süresi uygulayın ve token'ın kötüye kullanılmasını önlemek için sunucuda issuer (iss) ve audience (aud) iddialarını doğrulayın."
+          "paragraph": "Kimlik doğrulama, bir kullanıcının kimliğini teyit eder. Bu, karmaşıklık ve minimum uzunluk gerektiren güçlü bir parola politikasıyla başlar. Parolalar asla düz metin olarak saklanmamalıdır; bcrypt veya Argon2 gibi güçlü, tuzlanmış (salted) bir hashing algoritması kullanılmalıdır. Çok Faktörlü Kimlik Doğrulama (MFA) kritik bir ikinci güvenlik katmanı ekler. JSON Web Token (JWT) kullanırken, her zaman kısa bir son kullanma süresi uygulayın ve token'ın kötüye kullanılmasını önlemek için sunucuda issuer (iss) ve audience (aud) iddialarını doğrulayın.",
+          "imageUrl": "https://picsum.photos/seed/login/600/400",
+          "imageHint": "giriş güvenliği"
         }
       },
       {
+        "id": "authorization",
+        "icon": "UserMinus",
         "title": "Yetkilendirme",
         "description": "Kimliği doğrulanmış bir kullanıcının ne yapmasına izin verildiğini En Az Ayrıcalık İlkesi'ne göre uygulayın.",
         "details": [
@@ -52,10 +62,14 @@
           "Her hassas istek için API seviyesinde yetkilendirme kontrolleri yapın."
         ],
         "modalContent": {
-          "paragraph": "Yetkilendirme, kimliği doğrulanmış bir kullanıcının izinlerini belirler. Rol Tabanlı Erişim Kontrolü (RBAC), bu izinleri verimli bir şekilde yönetmek için standart bir modeldir. Temel kavram En Az Ayrıcalık İlkesi'dir: bir kullanıcı veya servis, işlevini yerine getirmek için yalnızca minimum gerekli izinlere sahip olmalıdır. Bu, kullanıcıların yetkileri olmayan verilere erişmesini veya eylemleri gerçekleştirmesini önlemek için her istekte, özellikle API seviyesinde, sunucu tarafında zorunlu kılınmalıdır."
+          "paragraph": "Yetkilendirme, kimliği doğrulanmış bir kullanıcının izinlerini belirler. Rol Tabanlı Erişim Kontrolü (RBAC), bu izinleri verimli bir şekilde yönetmek için standart bir modeldir. Temel kavram En Az Ayrıcalık İlkesi'dir: bir kullanıcı veya servis, işlevini yerine getirmek için yalnızca minimum gerekli izinlere sahip olmalıdır. Bu, kullanıcıların yetkileri olmayan verilere erişmesini veya eylemleri gerçekleştirmesini önlemek için her istekte, özellikle API seviyesinde, sunucu tarafında zorunlu kılınmalıdır.",
+          "imageUrl": "https://picsum.photos/seed/access/600/400",
+          "imageHint": "erişim kontrolü"
         }
       },
       {
+        "id": "error-handling",
+        "icon": "ShieldAlert",
         "title": "Güvenli Hata Yönetimi",
         "description": "Kullanıcıya hassas bilgileri sızdırmadan güvenli bir şekilde hata yönetimi yapın. Detaylı hataları sunucuda günlüğe kaydedin.",
         "details": [
@@ -64,10 +78,14 @@
           "Stack trace veya sistem detaylarını asla istemciye yönelik hatalarda göstermeyin."
         ],
         "modalContent": {
-          "paragraph": "Güvenli hata yönetimi, bilgi sızıntısını önlemek için kritik öneme sahiptir. Saldırganlar, sisteminizin mimarisi, kullandığınız framework'ler ve potansiyel güvenlik açıkları hakkında bilgi edinmek için ayrıntılı hata mesajlarını kullanabilirler. Bu nedenle, kullanıcılar yalnızca genel, bilgilendirici olmayan hata mesajları görmelidir. Stack trace'ler ve hata ayıklama bilgileri de dahil olmak üzere ayrıntılı günlükler, geliştiricilerin analiz etmesi için yalnızca güvenli, sunucu taraflı bir günlük sistemine yazılmalıdır."
+          "paragraph": "Güvenli hata yönetimi, bilgi sızıntısını önlemek için kritik öneme sahiptir. Saldırganlar, sisteminizin mimarisi, kullandığınız framework'ler ve potansiyel güvenlik açıkları hakkında bilgi edinmek için ayrıntılı hata mesajlarını kullanabilirler. Bu nedenle, kullanıcılar yalnızca genel, bilgilendirici olmayan hata mesajları görmelidir. Stack trace'ler ve hata ayıklama bilgileri de dahil olmak üzere ayrıntılı günlükler, geliştiricilerin analiz etmesi için yalnızca güvenli, sunucu taraflı bir günlük sistemine yazılmalıdır.",
+          "imageUrl": "https://picsum.photos/seed/logs/600/400",
+          "imageHint": "sunucu günlükleri"
         }
       },
       {
+        "id": "session-management",
+        "icon": "FileLock",
         "title": "Oturum Yönetimi",
         "description": "Kullanıcı oturumlarını güvenli çerez bayrakları, zaman aşımları ve uygun geçersiz kılma ile koruyun.",
         "details": [
@@ -76,10 +94,14 @@
           "Çıkış yapıldığında token'ları ve oturumları uygun şekilde geçersiz kılın."
         ],
         "modalContent": {
-          "paragraph": "Doğru oturum yönetimi, oturum kaçırma (session hijacking) saldırılarını önlemenin anahtarıdır. Oturum çerezleri, JavaScript'ten erişimi engellemek için 'HttpOnly' bayrağıyla ve yalnızca HTTPS üzerinden gönderilmelerini sağlamak için 'Secure' bayrağıyla yapılandırılmalıdır. Bir oturum zaman aşımı uygulamak, aktif olmayan kullanıcıları otomatik olarak çıkarır ve bir saldırgan için fırsat penceresini azaltır. Son olarak, çıkış yapmanın yalnızca istemci tarafında değil, sunucu tarafında da oturumu uygun şekilde geçersiz kıldığından emin olun."
+          "paragraph": "Doğru oturum yönetimi, oturum kaçırma (session hijacking) saldırılarını önlemenin anahtarıdır. Oturum çerezleri, JavaScript'ten erişimi engellemek için 'HttpOnly' bayrağıyla ve yalnızca HTTPS üzerinden gönderilmelerini sağlamak için 'Secure' bayrağıyla yapılandırılmalıdır. Bir oturum zaman aşımı uygulamak, aktif olmayan kullanıcıları otomatik olarak çıkarır ve bir saldırgan için fırsat penceresini azaltır. Son olarak, çıkış yapmanın yalnızca istemci tarafında değil, sunucu tarafında da oturumu uygun şekilde geçersiz kıldığından emin olun.",
+          "imageUrl": "https://picsum.photos/seed/network/600/400",
+          "imageHint": "ağ ayarları"
         }
       },
       {
+        "id": "cryptography",
+        "icon": "KeyRound",
         "title": "Kriptografi",
         "description": "Güçlü, endüstri standardı kriptografik algoritmalar ve güvenli anahtar yönetimi kullanın.",
         "details": [
@@ -88,10 +110,14 @@
           "Aktarım halindeki veriler için TLS 1.2+ zorunlu kılın ve HSTS başlıkları kullanın."
         ],
         "modalContent": {
-          "paragraph": "Kriptografi, verilerin gizliliğini ve bütünlüğünü korur. Her zaman iyi incelenmiş, standart algoritmalar kullanın. Simetrik şifreleme için GCM modlu AES-256 önerilen standarttır. Anahtar değişimi gibi asimetrik senaryolar için RSA-2048 veya Eliptik Eğri Kriptografisi (ECC) kullanın. Aktarım halindeki tüm veriler TLS 1.2 veya üstü kullanılarak şifrelenmelidir. Tarayıcıların sitenize yalnızca HTTPS üzerinden bağlanmasını zorunlu kılmak için HSTS (HTTP Strict Transport Security) başlığı kullanılmalıdır."
+          "paragraph": "Kriptografi, verilerin gizliliğini ve bütünlüğünü korur. Her zaman iyi incelenmiş, standart algoritmalar kullanın. Simetrik şifreleme için GCM modlu AES-256 önerilen standarttır. Anahtar değişimi gibi asimetrik senaryolar için RSA-2048 veya Eliptik Eğri Kriptografisi (ECC) kullanın. Aktarım halindeki tüm veriler TLS 1.2 veya üstü kullanılarak şifrelenmelidir. Tarayıcıların sitenize yalnızca HTTPS üzerinden bağlanmasını zorunlu kılmak için HSTS (HTTP Strict Transport Security) başlığı kullanılmalıdır.",
+          "imageUrl": "https://picsum.photos/seed/encryption/600/400",
+          "imageHint": "dijital şifreleme"
         }
       },
       {
+        "id": "devsecops",
+        "icon": "Cog",
         "title": "DevSecOps",
         "description": "Güvenlik uygulamalarını kodlamadan dağıtıma kadar tüm geliştirme yaşam döngüsüne entegre edin.",
         "details": [
@@ -100,34 +126,14 @@
           "API anahtarlarının ve token'ların sızmasını önlemek için gizli anahtar tespiti uygulayın."
         ],
         "modalContent": {
-          "paragraph": "DevSecOps, güvenliği yazılım geliştirme yaşam döngüsünün her aşamasına otomatikleştirme ve entegre etme uygulamasıdır. Bu, yazılırken kodu güvenlik açıkları için taramak üzere Statik Uygulama Güvenliği Testi (SAST) araçlarını ve çalışan uygulamayı test etmek için Dinamik Uygulama Güvenliği Testi (DAST) araçlarını kullanmayı içerir. CI/CD ardışık düzeninde bağımlılık taramasını ve gizli anahtar tespitini otomatikleştirmek, güvenlik açıklarını ve sızdırılmış kimlik bilgilerini üretime ulaşmadan önce yakalamaya yardımcı olur."
+          "paragraph": "DevSecOps, güvenliği yazılım geliştirme yaşam döngüsünün her aşamasına otomatikleştirme ve entegre etme uygulamasıdır. Bu, yazılırken kodu güvenlik açıkları için taramak üzere Statik Uygulama Güvenliği Testi (SAST) araçlarını ve çalışan uygulamayı test etmek için Dinamik Uygulama Güvenliği Testi (DAST) araçlarını kullanmayı içerir. CI/CD ardışık düzeninde bağımlılık taramasını ve gizli anahtar tespitini otomatikleştirmek, güvenlik açıklarını ve sızdırılmış kimlik bilgilerini üretime ulaşmadan önce yakalamaya yardımcı olur.",
+          "imageUrl": "https://picsum.photos/seed/database/600/400",
+          "imageHint": "veritabanı sunucusu"
         }
       },
       {
-        "title": "Veri Koruma",
-        "description": "Veriyi yaşam döngüsü boyunca koruyun; toplamayı en aza indirin ve durağan/hareketli halde güvence altına alın.",
-        "details": [
-          "Topladığınız ve sakladığınız verileri en aza indirin.",
-          "Verileri hassasiyete göre sınıflandırın ve uygun kontrolleri uygulayın.",
-          "Açık bir veri saklama ve imha politikanız olsun."
-        ],
-        "modalContent": {
-          "paragraph": "Veri koruma, bilgilerin yetkisiz erişim, kullanım, ifşa, değiştirme veya yok edilmeye karşı korunmasını içerir. Bu, yalnızca kesinlikle gerekli olanı toplamakla başlar - veri minimizasyonu. Veriler, veritabanlarında Kişisel Olarak Tanımlanabilir Bilgilerin (PII) şifrelenmesi gibi doğru düzeyde güvenlik uygulamak için hassasiyetlerine göre sınıflandırılmalıdır. Verilerin artık gerekmediğinde güvenli ve kalıcı olarak silinmesini sağlamak için resmi bir saklama politikası kritik öneme sahiptir, bu da 'saldırı yüzeyini' azaltır."
-        }
-      },
-      {
-        "title": "Güvenli Yapılandırma",
-        "description": "Teknoloji yığınınızın tüm bileşenlerini, sunuculardan ve framework'lerden bulut hizmetlerine kadar sağlamlaştırın.",
-        "details": [
-          "Varsayılan kimlik bilgilerini ve kullanılmayan hizmetleri kaldırın.",
-          "Tüm yazılımları, kütüphaneleri ve bağımlılıkları güncel tutun.",
-          "Yapılandırmaları düzenli olarak güvenlik zayıflıkları açısından denetleyin."
-        ],
-        "modalContent": {
-          "paragraph": "Birçok sistem varsayılan olarak güvensizdir. Güvenli yapılandırma, teknoloji yığınının her katmanını sağlamlaştırmayı içerir. Bu, varsayılan şifreleri değiştirmek, gereksiz özellikleri veya portları devre dışı bırakmak ve ayarları mümkün olduğunca kısıtlayıcı olacak şekilde yapılandırmak anlamına gelir. Bu, işletim sistemleri, web sunucuları, veritabanları ve bulut hizmeti yapılandırmaları (S3 bucket izinleri gibi) için geçerlidir. Güçlü bir güvenlik duruşu sürdürmek, zamanla 'yapılandırma kaymasını' önlemek için düzenli yama ve otomatik denetimler gerektirir."
-        }
-      },
-      {
+        "id": "logging-monitoring",
+        "icon": "Monitor",
         "title": "Günlük Kaydı ve İzleme",
         "description": "Güvenlik olaylarını tespit etmek, araştırmak ve müdahale etmek için kapsamlı günlük kaydı uygulayın.",
         "details": [
@@ -136,7 +142,9 @@
           "Günlüklerin kurcalanmaya karşı korunduğundan ve analiz için merkezileştirildiğinden emin olun."
         ],
         "modalContent": {
-          "paragraph": "Göremediğiniz şeye karşı savunma yapamazsınız. Etkili günlük kaydı ve izleme, şüpheli etkinlikleri tespit etmek ve bir olaydan sonra adli analiz için kritik öneme sahiptir. Günlüğe kaydedilecek önemli olaylar arasında kimlik doğrulama denemeleri, erişim kontrolü kararları (özellikle başarısızlıklar) ve şifre değişiklikleri gibi yüksek riskli eylemler bulunur. Bu günlükler, anormallikler açısından izlenebilecekleri ve gerçek zamanlı olarak potansiyel saldırıları belirlemek için ilişkilendirilebilecekleri güvenli bir merkezi sistemde saklanmalıdır."
+          "paragraph": "Göremediğiniz şeye karşı savunma yapamazsınız. Etkili günlük kaydı ve izleme, şüpheli etkinlikleri tespit etmek ve bir olaydan sonra adli analiz için kritik öneme sahiptir. Günlüğe kaydedilecek önemli olaylar arasında kimlik doğrulama denemeleri, erişim kontrolü kararları (özellikle başarısızlıklar) ve şifre değişiklikleri gibi yüksek riskli eylemler bulunur. Bu günlükler, anormallikler açısından izlenebilecekleri ve gerçek zamanlı olarak potansiyel saldırıları belirlemek için ilişkilendirilebilecekleri güvenli bir merkezi sistemde saklanmalıdır.",
+          "imageUrl": "https://picsum.photos/seed/monitoring/600/400",
+          "imageHint": "izleme paneli"
         }
       }
     ]

@@ -20,6 +20,8 @@
     "learnMore": "Learn More",
     "principles": [
       {
+        "id": "input-validation",
+        "icon": "ShieldCheck",
         "title": "Input Validation",
         "description": "Never trust user input. Use whitelisting and prepared statements to prevent injection attacks.",
         "details": [
@@ -28,10 +30,14 @@
           "Secure SQL queries with prepared statements."
         ],
         "modalContent": {
-          "paragraph": "Input validation is the first line of defense against attacks like SQL Injection and Cross-Site Scripting (XSS). It involves ensuring that any data received from a user conforms to expected formats before processing. A whitelist approach, which only allows known-good characters, is far more secure than a blacklist that tries to block malicious input. For database interactions, always use prepared statements or parameterized queries to ensure user input is treated as data, not executable code."
+          "paragraph": "Input validation is the first line of defense against attacks like SQL Injection and Cross-Site Scripting (XSS). It involves ensuring that any data received from a user conforms to expected formats before processing. A whitelist approach, which only allows known-good characters, is far more secure than a blacklist that tries to block malicious input. For database interactions, always use prepared statements or parameterized queries to ensure user input is treated as data, not executable code.",
+          "imageUrl": "https://picsum.photos/seed/datasecurity/600/400",
+          "imageHint": "data security"
         }
       },
       {
+        "id": "authentication",
+        "icon": "Lock",
         "title": "Authentication",
         "description": "Verify user identity with strong policies, multi-factor authentication, and secure token management.",
         "details": [
@@ -40,10 +46,14 @@
           "Ensure JWTs have an expiration and validate issuer/audience claims."
         ],
         "modalContent": {
-          "paragraph": "Authentication confirms a user's identity. It starts with a strong password policy, requiring complexity and minimum length. Passwords must never be stored in plaintext; use a strong, salted hashing algorithm like bcrypt or Argon2. Multi-Factor Authentication (MFA) adds a critical second layer of security. When using JSON Web Tokens (JWTs), always enforce a short expiration time and validate the issuer (iss) and audience (aud) claims on the server to prevent token misuse."
+          "paragraph": "Authentication confirms a user's identity. It starts with a strong password policy, requiring complexity and minimum length. Passwords must never be stored in plaintext; use a strong, salted hashing algorithm like bcrypt or Argon2. Multi-Factor Authentication (MFA) adds a critical second layer of security. When using JSON Web Tokens (JWTs), always enforce a short expiration time and validate the issuer (iss) and audience (aud) claims on the server to prevent token misuse.",
+          "imageUrl": "https://picsum.photos/seed/login/600/400",
+          "imageHint": "login security"
         }
       },
       {
+        "id": "authorization",
+        "icon": "UserMinus",
         "title": "Authorization",
         "description": "Enforce what an authenticated user is allowed to do, following the Principle of Least Privilege.",
         "details": [
@@ -52,10 +62,14 @@
           "Perform authorization checks at the API level for every sensitive request."
         ],
         "modalContent": {
-          "paragraph": "Authorization determines the permissions of an authenticated user. Role-Based Access Control (RBAC) is a standard model for managing these permissions efficiently. The core concept is the Principle of Least Privilege: a user or service should only have the minimum permissions required to perform its function. This must be enforced on the server-side for every request, especially at the API level, to prevent users from accessing data or performing actions they are not entitled to."
+          "paragraph": "Authorization determines the permissions of an authenticated user. Role-Based Access Control (RBAC) is a standard model for managing these permissions efficiently. The core concept is the Principle of Least Privilege: a user or service should only have the minimum permissions required to perform its function. This must be enforced on the server-side for every request, especially at the API level, to prevent users from accessing data or performing actions they are not entitled to.",
+          "imageUrl": "https://picsum.photos/seed/access/600/400",
+          "imageHint": "access control"
         }
       },
       {
+        "id": "error-handling",
+        "icon": "ShieldAlert",
         "title": "Secure Error Handling",
         "description": "Fail securely without leaking sensitive information to the user. Log detailed errors on the server.",
         "details": [
@@ -64,10 +78,14 @@
           "Never expose stack traces or system details in client-facing errors."
         ],
         "modalContent": {
-          "paragraph": "Secure error handling is crucial for preventing information leakage. Attackers can use detailed error messages to learn about your system's architecture, frameworks, and potential vulnerabilities. Therefore, users should only see generic, uninformative error messages. Detailed logs, including stack traces and debugging information, should be written exclusively to a secure, server-side logging system for developers to analyze."
+          "paragraph": "Secure error handling is crucial for preventing information leakage. Attackers can use detailed error messages to learn about your system's architecture, frameworks, and potential vulnerabilities. Therefore, users should only see generic, uninformative error messages. Detailed logs, including stack traces and debugging information, should be written exclusively to a secure, server-side logging system for developers to analyze.",
+          "imageUrl": "https://picsum.photos/seed/logs/600/400",
+          "imageHint": "server logs"
         }
       },
       {
+        "id": "session-management",
+        "icon": "FileLock",
         "title": "Session Management",
         "description": "Protect user sessions with secure cookie flags, timeouts, and proper invalidation.",
         "details": [
@@ -76,10 +94,14 @@
           "Properly invalidate tokens and sessions upon logout."
         ],
         "modalContent": {
-          "paragraph": "Proper session management is key to preventing session hijacking. Session cookies must be configured with the 'HttpOnly' flag to prevent access from JavaScript and the 'Secure' flag to ensure they are only sent over HTTPS. Implementing a session timeout automatically logs out inactive users, reducing the window of opportunity for an attacker. Finally, ensure that logging out properly invalidates the session on the server-side, not just on the client."
+          "paragraph": "Proper session management is key to preventing session hijacking. Session cookies must be configured with the 'HttpOnly' flag to prevent access from JavaScript and the 'Secure' flag to ensure they are only sent over HTTPS. Implementing a session timeout automatically logs out inactive users, reducing the window of opportunity for an attacker. Finally, ensure that logging out properly invalidates the session on the server-side, not just on the client.",
+          "imageUrl": "https://picsum.photos/seed/network/600/400",
+          "imageHint": "network settings"
         }
       },
       {
+        "id": "cryptography",
+        "icon": "KeyRound",
         "title": "Cryptography",
         "description": "Use strong, industry-standard cryptographic algorithms and secure key management.",
         "details": [
@@ -88,10 +110,14 @@
           "Enforce TLS 1.2+ for data in transit and use HSTS headers."
         ],
         "modalContent": {
-          "paragraph": "Cryptography protects data confidentiality and integrity. Always use well-vetted, standard algorithms. For symmetric encryption, AES-256 with GCM mode is the recommended standard. For asymmetric scenarios, like key exchange, use RSA-2048 or Elliptic Curve Cryptography (ECC). All data in transit must be encrypted using TLS 1.2 or higher. The HSTS (HTTP Strict Transport Security) header should be used to enforce that browsers only connect to your site via HTTPS."
+          "paragraph": "Cryptography protects data confidentiality and integrity. Always use well-vetted, standard algorithms. For symmetric encryption, AES-256 with GCM mode is the recommended standard. For asymmetric scenarios, like key exchange, use RSA-2048 or Elliptic Curve Cryptography (ECC). All data in transit must be encrypted using TLS 1.2 or higher. The HSTS (HTTP Strict Transport Security) header should be used to enforce that browsers only connect to your site via HTTPS.",
+          "imageUrl": "https://picsum.photos/seed/encryption/600/400",
+          "imageHint": "digital encryption"
         }
       },
       {
+        "id": "devsecops",
+        "icon": "Cog",
         "title": "DevSecOps",
         "description": "Integrate security practices into the entire development lifecycle, from coding to deployment.",
         "details": [
@@ -100,34 +126,14 @@
           "Implement secret detection to prevent API keys and tokens from leaking."
         ],
         "modalContent": {
-          "paragraph": "DevSecOps is the practice of automating and integrating security at every phase of the software development lifecycle. This includes using Static Application Security Testing (SAST) tools to scan code for vulnerabilities as it's written, and Dynamic Application Security Testing (DAST) tools to test the running application. Automating dependency scanning and secret detection in the CI/CD pipeline helps catch vulnerabilities and leaked credentials before they reach production."
+          "paragraph": "DevSecOps is the practice of automating and integrating security at every phase of the software development lifecycle. This includes using Static Application Security Testing (SAST) tools to scan code for vulnerabilities as it's written, and Dynamic Application Security Testing (DAST) tools to test the running application. Automating dependency scanning and secret detection in the CI/CD pipeline helps catch vulnerabilities and leaked credentials before they reach production.",
+          "imageUrl": "https://picsum.photos/seed/database/600/400",
+          "imageHint": "database server"
         }
       },
       {
-        "title": "Data Protection",
-        "description": "Protect data throughout its lifecycle by minimizing collection and securing it at rest and in transit.",
-        "details": [
-          "Minimize the data you collect and store.",
-          "Classify data by sensitivity and apply appropriate controls.",
-          "Have a clear data retention and disposal policy."
-        ],
-        "modalContent": {
-          "paragraph": "Data protection involves safeguarding information from unauthorized access, use, disclosure, alteration, or destruction. It starts with data minimization—collecting only what is absolutely necessary. Data should be classified based on its sensitivity to apply the right level of security, such as encrypting Personally Identifiable Information (PII) in databases. A formal retention policy is crucial to ensure data is securely and permanently deleted once it is no longer needed, reducing the 'attack surface'."
-        }
-      },
-      {
-        "title": "Secure Configuration",
-        "description": "Harden all components of your technology stack, from servers and frameworks to cloud services.",
-        "details": [
-          "Remove default credentials and unused services.",
-          "Keep all software, libraries, and dependencies up to date.",
-          "Regularly audit configurations for security weaknesses."
-        ],
-        "modalContent": {
-          "paragraph": "Many systems are insecure by default. Secure configuration involves hardening every layer of the tech stack. This means changing default passwords, disabling unnecessary features or ports, and configuring settings to be as restrictive as possible. This applies to operating systems, web servers, databases, and cloud service configurations (like S3 bucket permissions). Maintaining a strong security posture requires regular patching and automated audits to prevent 'configuration drift' over time."
-        }
-      },
-      {
+        "id": "logging-monitoring",
+        "icon": "Monitor",
         "title": "Logging & Monitoring",
         "description": "Implement comprehensive logging to detect, investigate, and respond to security incidents.",
         "details": [
@@ -136,7 +142,9 @@
           "Ensure logs are protected from tampering and centralized for analysis."
         ],
         "modalContent": {
-          "paragraph": "You can't defend against what you can't see. Effective logging and monitoring are crucial for detecting suspicious activity and for forensic analysis after an incident. Key events to log include authentication attempts, access control decisions (especially failures), and high-risk actions like password changes. These logs should be stored securely in a centralized system where they can be monitored for anomalies and correlated to identify potential attacks in real-time."
+          "paragraph": "You can't defend against what you can't see. Effective logging and monitoring are crucial for detecting suspicious activity and for forensic analysis after an incident. Key events to log include authentication attempts, access control decisions (especially failures), and high-risk actions like password changes. These logs should be stored securely in a centralized system where they can be monitored for anomalies and correlated to identify potential attacks in real-time.",
+          "imageUrl": "https://picsum.photos/seed/monitoring/600/400",
+          "imageHint": "monitoring dashboard"
         }
       }
     ]
