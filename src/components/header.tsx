@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -34,6 +35,17 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  };
 
   return (
     <header className={cn(
@@ -41,7 +53,7 @@ export function Header() {
       isScrolled ? "bg-background/80 backdrop-blur-sm shadow-md" : "bg-transparent"
     )}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary transition-transform hover:scale-105">
+        <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2 font-bold text-xl text-primary transition-transform hover:scale-105">
           <Shield className="h-7 w-7" />
           <span>{t('brand')}</span>
         </Link>
@@ -66,7 +78,7 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right">
               <div className="flex flex-col gap-6 p-6">
-                 <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary mb-4" onClick={() => setIsMobileMenuOpen(false)}>
+                 <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2 font-bold text-xl text-primary mb-4">
                     <Shield className="h-7 w-7" />
                     <span>{t('brand')}</span>
                   </Link>
