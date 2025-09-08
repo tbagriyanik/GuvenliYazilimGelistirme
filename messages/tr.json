@@ -1,16 +1,16 @@
 {
   "Header": {
-    "brand": "Güvenli Yazılım Geliştirme 2025",
+    "brand": "Güvenli Uygulama Geliştirme",
     "nav": {
       "principles": "İlkeler",
-      "generator": "Oluşturucu",
+      "generator": "AI Kod Oluştur",
       "examples": "Örnekler",
       "checklist": "Kontrol Listesi"
     }
   },
   "Hero": {
-    "title": "Yazılımı Güvenli Geliştirin.",
-    "subtitle": "Temel yazılım güvenliği ilkelerini anlamak ve uygulamak için kapsamlı rehberiniz SecureBase'e hoş geldiniz.",
+    "title": "Güvenli Uygulama Geliştirme",
+    "subtitle": "Temel yazılım güvenliği ilkelerini anlamak ve uygulamak için kapsamlı rehberiniz.",
     "cta": "İlkeleri Keşfedin"
   },
   "SecurityPrinciples": {
@@ -119,7 +119,7 @@
         "required": "Lütfen bir programlama dili seçin."
       },
       "button": {
-        "generate": "Parçacık Oluştur",
+        "generate": "Oluştur",
         "generating": "Oluşturuluyor..."
       }
     },
@@ -279,7 +279,7 @@
     ]
   },
   "Footer": {
-    "copyright": "SecureBase. Tüm hakları saklıdır."
+    "copyright": "Güvenli Uygulama Geliştirme. Tüm hakları saklıdır."
   },
   "CopyButton": {
     "copy": "Panoya kopyala",

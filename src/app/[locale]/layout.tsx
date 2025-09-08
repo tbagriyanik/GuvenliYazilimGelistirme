@@ -11,8 +11,8 @@ import '../globals.css';
 const locales = ['en', 'tr'];
 
 export const metadata: Metadata = {
-  title: 'SecureBase',
-  description: 'Your guide to building secure software.',
+  title: 'Secure Application Development',
+  description: 'Your guide to building secure applications.',
 };
 
 type Props = {

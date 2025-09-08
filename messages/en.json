@@ -1,16 +1,16 @@
 {
   "Header": {
-    "brand": "Secure Software Development 2025",
+    "brand": "Secure Application Development",
     "nav": {
       "principles": "Principles",
-      "generator": "Generator",
+      "generator": "AI Code Generator",
       "examples": "Examples",
       "checklist": "Checklist"
     }
   },
   "Hero": {
-    "title": "Build Software, Securely.",
-    "subtitle": "Welcome to SecureBase, your comprehensive guide to understanding and implementing fundamental software security principles.",
+    "title": "Secure Application Development",
+    "subtitle": "Your comprehensive guide to understanding and implementing fundamental software security principles.",
     "cta": "Explore Principles"
   },
   "SecurityPrinciples": {
@@ -279,7 +279,7 @@
     ]
   },
   "Footer": {
-    "copyright": "SecureBase. All rights reserved."
+    "copyright": "Secure Application Development. All rights reserved."
   },
   "CopyButton": {
     "copy": "Copy to clipboard",
