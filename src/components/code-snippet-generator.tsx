@@ -26,6 +26,8 @@ import { Loader2, Sparkles } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { CopyButton } from './copy-button';
 import { useTranslations } from 'next-intl';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const securityPrinciples = [
   "Input Validation",
@@ -52,6 +54,7 @@ const programmingLanguages = [
 export function CodeSnippetGenerator() {
   const [isPending, startTransition] = useTransition();
   const [generatedCode, setGeneratedCode] = useState('');
+  const [selectedLanguage, setSelectedLanguage] = useState('');
   const { toast } = useToast();
   const t = useTranslations('CodeSnippetGenerator');
 
@@ -70,6 +73,7 @@ export function CodeSnippetGenerator() {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     setGeneratedCode('');
+    setSelectedLanguage(data.programmingLanguage.toLowerCase());
     startTransition(async () => {
       const result = await generateSnippetAction(data);
       if (result.success && result.codeSnippet) {
@@ -88,7 +92,7 @@ export function CodeSnippetGenerator() {
     <section id="generator" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-headline">{t('title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-headline">{t('title')}</h2>
           <p className="mt-4 text-muted-foreground">
             {t('subtitle')}
           </p>
@@ -155,16 +159,22 @@ export function CodeSnippetGenerator() {
           {(isPending || generatedCode) && (
             <div className="mt-8">
               <h3 className="font-semibold mb-2 text-center">{t('generatedCodeTitle')}</h3>
-              <Card className="bg-gray-900/80 text-gray-100 font-mono text-sm relative glass-card">
+              <Card className="bg-card/80 text-gray-100 font-mono text-sm relative glass-card overflow-hidden">
                   <div className="absolute top-2 right-2 z-10">
                     <CopyButton text={generatedCode} />
                   </div>
-                <CardContent className="p-4 overflow-x-auto">
+                <CardContent className="p-0">
                   {isPending && !generatedCode && <div className="flex items-center justify-center h-48"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>}
                   {generatedCode && (
-                    <pre>
-                      <code>{generatedCode}</code>
-                    </pre>
+                     <SyntaxHighlighter
+                      language={selectedLanguage}
+                      style={vscDarkPlus}
+                      customStyle={{ margin: 0, padding: '1.5rem', background: 'transparent' }}
+                      codeTagProps={{ style: { fontFamily: 'inherit' } }}
+                      showLineNumbers
+                    >
+                      {generatedCode}
+                    </SyntaxHighlighter>
                   )}
                 </CardContent>
               </Card>
