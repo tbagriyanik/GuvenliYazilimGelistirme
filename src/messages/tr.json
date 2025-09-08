@@ -1,7 +1,7 @@
 
 {
   "Header": {
-    "brand": "Güvenli Uygulama Geliştirme",
+    "brand": "Güvenli Uygurama Geliştirme",
     "nav": {
       "principles": "İlkeler",
       "generator": "AI Kod Oluştur",
@@ -211,13 +211,13 @@
         "impact": "Şifrelenmiş müşteri parola kasalarının ve hassas kullanıcı verilerinin çalınması. Tüm LastPass kullanıcılarına ana parolalarını değiştirmeleri tavsiye edildi.",
         "lesson": "Derinlemesine savunma kritiktir. Tek bir başarısızlık noktası (bir geliştiricinin ev bilgisayarı gibi) bir dizi güvenlik başarısızlığına yol açabilir ve bulut güvenliği yanlış yapılandırmaları yıkıcı olabilir.",
         "modalContent": {
-          "paragraph": "2022 LastPass ihlali, üst düzey bir DevOps mühendisinin ev bilgisayarının ele geçirilmesiyle başlayan çok aşamalı bir saldırıydı. Saldırganlar, daha sonra müşteri kasa verilerini içeren bulut tabanlı yedekleme depolama alanına erişmek için kullandıkları kurumsal kasa kimlik bilgilerini çaldılar. Kasalar şifrelenmiş olsa da, saldırganlar hassas, şifrelenmemiş kullanıcı bilgilerini de elde etti. Olay, geliştirici ortamlarını güvence altına almanın ve kritik bulut altyapısı için katı, çok katmanlı erişim kontrolleri uygulamanın önemi konusunda sert bir ders oldu."
+          "paragraph": "2022 LastPass ihlali, üst düzey bir DevOps mühendisinin ev bilgisayarının ele geçirilmesiyle başlayan çok aşamalı bir saldırıydı. Saldırganlar, daha sonra müşteri kasa verilerini içeren bulut tabanlı yedekleme depolama alanına erişmek için kullandıkları kurumsal kasa kimlik bilgilerini çaldılar. Kasalar şifrelenmiş olsa da, saldırganlar hassas, şifrelenmemiş kullanıcı bilgilerini de elde etti. Olay, geliştirici ortamlarını güvence altına almanın ve kritik bulut alapısı için katı, çok katmanlı erişim kontrolleri uygulamanın önemi konusunda sert bir ders oldu."
         }
       },
       {
         "vulnerability": "Destek vaka yönetim sistemi için çalınan kimlik bilgileri",
         "impact": "Saldırganlar, meşru kullanıcıları taklit etmelerine olanak tanıyan hassas oturum token'ları içeren HAR dosyalarını destek biletlerinden erişip indirdi.",
-        "lesson": "İkincil bir sisteme (destek portalı gibi) yapılan bir saldırı, birincil hizmeti ele geçirmek için bir basamak olabilir. Üretim dışı olanlar da dahil olmak üzere tüm sistemler sağlam güvenlik gerektirir.",
+        "lesson": "İkincil bir sisteme (destek portalı gibi) yapılan bir saldırı, birincil hizmeti ele geçirmek için bir basamak olabilir. Tüm sistemler, üretim dışı olanlar da dahil olmak üzere sağlam güvenlik gerektirir.",
         "modalContent": {
           "paragraph": "Ekim 2023'te, kimlik ve erişim yönetimi sağlayıcısı Okta, saldırganların çalınan kimlik bilgilerini kullanarak destek vaka yönetim sistemine erişim sağladığı bir ihlal açıkladı. Müşteriler tarafından yüklenen dosyaları, oturum token'ları içeren HAR dosyaları da dahil olmak üzere görüntüleyebildiler. Saldırganlar bu token'ları kullanıcı oturumlarını kaçırmak, MFA'yı atlamak ve müşteri hesaplarına yetkisiz erişim sağlamak için kullandılar. İhlal, bir sistemdeki bir zayıflığın tüm platformun güvenliğini baltalayabileceğinden, güvenliğin bütünsel olması gerektiğini vurguladı."
         }
