@@ -1,6 +1,7 @@
+
 "use client";
 
-import { useState, useTransition } from 'react';
+import { useState, useTransition, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -27,7 +28,8 @@ import { useToast } from '@/hooks/use-toast';
 import { CopyButton } from './copy-button';
 import { useTranslations } from 'next-intl';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { useTheme } from 'next-themes';
 
 const securityPrinciples = [
   "Input Validation",
@@ -57,6 +59,12 @@ export function CodeSnippetGenerator() {
   const [selectedLanguage, setSelectedLanguage] = useState('');
   const { toast } = useToast();
   const t = useTranslations('CodeSnippetGenerator');
+  const { resolvedTheme } = useTheme();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const FormSchema = z.object({
     securityPrinciple: z.string({
@@ -87,6 +95,8 @@ export function CodeSnippetGenerator() {
       }
     });
   }
+
+  const codeTheme = resolvedTheme === 'dark' ? vscDarkPlus : vs;
 
   return (
     <section id="generator" className="py-16 md:py-24">
@@ -159,16 +169,16 @@ export function CodeSnippetGenerator() {
           {(isPending || generatedCode) && (
             <div className="mt-8">
               <h3 className="font-semibold mb-2 text-center">{t('generatedCodeTitle')}</h3>
-              <Card className="bg-card/80 text-gray-100 font-mono text-sm relative glass-card overflow-hidden">
+              <Card className="bg-card/80 font-mono text-sm relative glass-card overflow-hidden">
                   <div className="absolute top-2 right-2 z-10">
                     <CopyButton text={generatedCode} />
                   </div>
                 <CardContent className="p-0">
                   {isPending && !generatedCode && <div className="flex items-center justify-center h-48"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>}
-                  {generatedCode && (
+                  {generatedCode && isClient && (
                      <SyntaxHighlighter
                       language={selectedLanguage}
-                      style={vscDarkPlus}
+                      style={codeTheme}
                       customStyle={{ margin: 0, padding: '1.5rem', background: 'transparent' }}
                       codeTagProps={{ style: { fontFamily: 'inherit' } }}
                       showLineNumbers
