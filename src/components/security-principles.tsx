@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
 import { Button } from './ui/button';
-import { ShieldCheck, Lock, KeyRound, ShieldAlert, DatabaseZap, Settings, UserMinus, type LucideIcon, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Lock, UserMinus, ShieldAlert, Settings, KeyRound, DatabaseZap, FileLock, Cog, Monitor, type LucideIcon, ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from '@/navigation';
 import { useSearchParams } from "next/navigation";
@@ -65,10 +65,10 @@ export function SecurityPrinciples() {
       }
     },
     {
-      id: "authorization",
+      id: "crypto",
       title: t('principles.2.title'),
       description: t('principles.2.description'),
-      Icon: UserMinus,
+      Icon: KeyRound,
       details: t.raw('principles.2.details'),
        modalContent: {
         paragraph: t('principles.2.modalContent.paragraph'),
@@ -89,10 +89,10 @@ export function SecurityPrinciples() {
       }
     },
     {
-      id: "session-management",
+      id: "data-protection",
       title: t('principles.4.title'),
       description: t('principles.4.description'),
-      Icon: Settings,
+      Icon: FileLock,
       details: t.raw('principles.4.details'),
       modalContent: {
         paragraph: t('principles.4.modalContent.paragraph'),
@@ -101,10 +101,10 @@ export function SecurityPrinciples() {
       }
     },
     {
-      id: "crypto",
+      id: "secure-configuration",
       title: t('principles.5.title'),
       description: t('principles.5.description'),
-      Icon: KeyRound,
+      Icon: Cog,
       details: t.raw('principles.5.details'),
       modalContent: {
         paragraph: t('principles.5.modalContent.paragraph'),
@@ -113,17 +113,17 @@ export function SecurityPrinciples() {
       }
     },
     {
-      id: "devsecops",
+      id: "authorization",
       title: t('principles.6.title'),
       description: t('principles.6.description'),
-      Icon: DatabaseZap,
+      Icon: UserMinus,
       details: t.raw('principles.6.details'),
       modalContent: {
         paragraph: t('principles.6.modalContent.paragraph'),
         imageUrl: "https://picsum.photos/seed/database/600/400",
         imageHint: "database server"
       }
-    },
+    }
   ];
 
   const activeModal = searchParams.get('modal');
@@ -137,7 +137,7 @@ export function SecurityPrinciples() {
             {t('subtitle')}
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {principles.map((p) => (
              <Dialog key={p.id} open={activeModal === p.id} onOpenChange={(open) => handleOpenChange(open, p.id)}>
               <Card className="glass-card flex flex-col text-center items-center transition-all duration-300 hover:scale-105 hover:shadow-2xl">

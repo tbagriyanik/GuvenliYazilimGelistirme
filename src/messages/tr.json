@@ -102,6 +102,42 @@
         "modalContent": {
           "paragraph": "DevSecOps, güvenliği yazılım geliştirme yaşam döngüsünün her aşamasına otomatikleştirme ve entegre etme uygulamasıdır. Bu, yazılırken kodu güvenlik açıkları için taramak üzere Statik Uygulama Güvenliği Testi (SAST) araçlarını ve çalışan uygulamayı test etmek için Dinamik Uygulama Güvenliği Testi (DAST) araçlarını kullanmayı içerir. CI/CD ardışık düzeninde bağımlılık taramasını ve gizli anahtar tespitini otomatikleştirmek, güvenlik açıklarını ve sızdırılmış kimlik bilgilerini üretime ulaşmadan önce yakalamaya yardımcı olur."
         }
+      },
+      {
+        "title": "Veri Koruma",
+        "description": "Veriyi yaşam döngüsü boyunca koruyun; toplamayı en aza indirin ve durağan/hareketli halde güvence altına alın.",
+        "details": [
+          "Topladığınız ve sakladığınız verileri en aza indirin.",
+          "Verileri hassasiyete göre sınıflandırın ve uygun kontrolleri uygulayın.",
+          "Açık bir veri saklama ve imha politikanız olsun."
+        ],
+        "modalContent": {
+          "paragraph": "Veri koruma, bilgilerin yetkisiz erişim, kullanım, ifşa, değiştirme veya yok edilmeye karşı korunmasını içerir. Bu, yalnızca kesinlikle gerekli olanı toplamakla başlar - veri minimizasyonu. Veriler, veritabanlarında Kişisel Olarak Tanımlanabilir Bilgilerin (PII) şifrelenmesi gibi doğru düzeyde güvenlik uygulamak için hassasiyetlerine göre sınıflandırılmalıdır. Verilerin artık gerekmediğinde güvenli ve kalıcı olarak silinmesini sağlamak için resmi bir saklama politikası kritik öneme sahiptir, bu da 'saldırı yüzeyini' azaltır."
+        }
+      },
+      {
+        "title": "Güvenli Yapılandırma",
+        "description": "Teknoloji yığınınızın tüm bileşenlerini, sunuculardan ve framework'lerden bulut hizmetlerine kadar sağlamlaştırın.",
+        "details": [
+          "Varsayılan kimlik bilgilerini ve kullanılmayan hizmetleri kaldırın.",
+          "Tüm yazılımları, kütüphaneleri ve bağımlılıkları güncel tutun.",
+          "Yapılandırmaları düzenli olarak güvenlik zayıflıkları açısından denetleyin."
+        ],
+        "modalContent": {
+          "paragraph": "Birçok sistem varsayılan olarak güvensizdir. Güvenli yapılandırma, teknoloji yığınının her katmanını sağlamlaştırmayı içerir. Bu, varsayılan şifreleri değiştirmek, gereksiz özellikleri veya portları devre dışı bırakmak ve ayarları mümkün olduğunca kısıtlayıcı olacak şekilde yapılandırmak anlamına gelir. Bu, işletim sistemleri, web sunucuları, veritabanları ve bulut hizmeti yapılandırmaları (S3 bucket izinleri gibi) için geçerlidir. Güçlü bir güvenlik duruşu sürdürmek, zamanla 'yapılandırma kaymasını' önlemek için düzenli yama ve otomatik denetimler gerektirir."
+        }
+      },
+      {
+        "title": "Günlük Kaydı ve İzleme",
+        "description": "Güvenlik olaylarını tespit etmek, araştırmak ve müdahale etmek için kapsamlı günlük kaydı uygulayın.",
+        "details": [
+          "Tüm kimlik doğrulama denemelerini (başarılı ve başarısız) günlüğe kaydedin.",
+          "Erişim kontrolü hatalarını ve girdi doğrulama hatalarını izleyin.",
+          "Günlüklerin kurcalanmaya karşı korunduğundan ve analiz için merkezileştirildiğinden emin olun."
+        ],
+        "modalContent": {
+          "paragraph": "Göremediğiniz şeye karşı savunma yapamazsınız. Etkili günlük kaydı ve izleme, şüpheli etkinlikleri tespit etmek ve bir olaydan sonra adli analiz için kritik öneme sahiptir. Günlüğe kaydedilecek önemli olaylar arasında kimlik doğrulama denemeleri, erişim kontrolü kararları (özellikle başarısızlıklar) ve şifre değişiklikleri gibi yüksek riskli eylemler bulunur. Bu günlükler, anormallikler açısından izlenebilecekleri ve gerçek zamanlı olarak potansiyel saldırıları belirlemek için ilişkilendirilebilecekleri güvenli bir merkezi sistemde saklanmalıdır."
+        }
       }
     ]
   },
@@ -265,5 +301,3 @@
     "select": "Dil seçin"
   }
 }
-
-    

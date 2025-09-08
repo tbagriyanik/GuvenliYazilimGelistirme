@@ -102,6 +102,42 @@
         "modalContent": {
           "paragraph": "DevSecOps is the practice of automating and integrating security at every phase of the software development lifecycle. This includes using Static Application Security Testing (SAST) tools to scan code for vulnerabilities as it's written, and Dynamic Application Security Testing (DAST) tools to test the running application. Automating dependency scanning and secret detection in the CI/CD pipeline helps catch vulnerabilities and leaked credentials before they reach production."
         }
+      },
+      {
+        "title": "Data Protection",
+        "description": "Protect data throughout its lifecycle by minimizing collection and securing it at rest and in transit.",
+        "details": [
+          "Minimize the data you collect and store.",
+          "Classify data by sensitivity and apply appropriate controls.",
+          "Have a clear data retention and disposal policy."
+        ],
+        "modalContent": {
+          "paragraph": "Data protection involves safeguarding information from unauthorized access, use, disclosure, alteration, or destruction. It starts with data minimization—collecting only what is absolutely necessary. Data should be classified based on its sensitivity to apply the right level of security, such as encrypting Personally Identifiable Information (PII) in databases. A formal retention policy is crucial to ensure data is securely and permanently deleted once it is no longer needed, reducing the 'attack surface'."
+        }
+      },
+      {
+        "title": "Secure Configuration",
+        "description": "Harden all components of your technology stack, from servers and frameworks to cloud services.",
+        "details": [
+          "Remove default credentials and unused services.",
+          "Keep all software, libraries, and dependencies up to date.",
+          "Regularly audit configurations for security weaknesses."
+        ],
+        "modalContent": {
+          "paragraph": "Many systems are insecure by default. Secure configuration involves hardening every layer of the tech stack. This means changing default passwords, disabling unnecessary features or ports, and configuring settings to be as restrictive as possible. This applies to operating systems, web servers, databases, and cloud service configurations (like S3 bucket permissions). Maintaining a strong security posture requires regular patching and automated audits to prevent 'configuration drift' over time."
+        }
+      },
+      {
+        "title": "Logging & Monitoring",
+        "description": "Implement comprehensive logging to detect, investigate, and respond to security incidents.",
+        "details": [
+          "Log all authentication attempts (success and failure).",
+          "Monitor for access control failures and input validation errors.",
+          "Ensure logs are protected from tampering and centralized for analysis."
+        ],
+        "modalContent": {
+          "paragraph": "You can't defend against what you can't see. Effective logging and monitoring are crucial for detecting suspicious activity and for forensic analysis after an incident. Key events to log include authentication attempts, access control decisions (especially failures), and high-risk actions like password changes. These logs should be stored securely in a centralized system where they can be monitored for anomalies and correlated to identify potential attacks in real-time."
+        }
       }
     ]
   },
@@ -265,5 +301,3 @@
     "select": "Select language"
   }
 }
-
-    
