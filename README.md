@@ -39,3 +39,8 @@ To publish this project to a new GitHub repository, follow these steps in your l
     ```
 
 After these steps, your code will be available on your GitHub repository.
+
+
+Temel yazılım güvenliği ilkelerini anlamak ve uygulamak için kapsamlı rehberiniz. 
+
+![Ekran](<Ekran görüntüsü 2025-09-21 162636.png>)
